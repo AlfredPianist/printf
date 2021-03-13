@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include <unistd.h>
 #include "holberton.h"
 
 int _printf(const char *format, ...)
 {
+	void (*form)(va_list, unsigned int *, unsigned int *, char *);
 	va_list args;
 	unsigned int counter_f, counter_s;
-	char str[100], *str_2;
+	char str[100];
 
 	counter_f = counter_s = 0;
 
@@ -15,31 +15,11 @@ int _printf(const char *format, ...)
 	{
 		if (format[counter_f] == '%')
 		{
-			switch (format[counter_f + 1])
-			{
-			case 'c':
-				str[counter_s] = (char) va_arg(args, int);
-				counter_f += 2;
-				counter_s++;
-				continue;
-			case 's':
-				str_2 = va_arg(args, char *);
-				while (*str_2 != '\0')
-				{
-					str[counter_s] = *str_2;
-					str_2++;
-					counter_s++;
-				}
-				counter_f += 2;
-				continue;
-			case '%':
-				str[counter_s] = '%';
-				counter_f += 2;
-				counter_s++;
-				continue;
-			default:
+			form = get_format(format[counter_f + 1]);
+			
+			if (form == NULL)
 				return (-1);
-			}
+			form(args, &counter_f, &counter_s, str);
 		}
 		else
 		{
