@@ -83,4 +83,25 @@ This is the printf project.
     <li>Planning for split work, implementation of other formats.</li>
   </ul>
 </details>
-
+<details>
+  <summary>
+    <h5>
+    Session 4 (Duration: 03:10, from 16:14 to 19:25)
+    </h5>
+    <h5>
+    Session 5 (Duration: 02:54 , from 20:33 to 23:27)      
+    </h5>
+  </summary>
+  <ul>
+    <li>Discussion about flags, width and precision</li>
+  	<li>Implementation of strconcat</li>
+    </ul>
+  <h5>
+    Tomorrow:
+  </h5>
+  <ul>
+    <li>Plan how to implement more than two characters after the format %</li>
+    <li>Alfredo will work in: %b, %X, %x, %R</li>
+  	<li>Daniel will work in %u, %o, %r</li>
+    </ul>
+</details>
