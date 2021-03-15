@@ -72,7 +72,7 @@ void f_int(va_list arg_l,
 {
 	char *integer;
 
-	integer = _itoa(va_arg(arg_l, int), 10);
+	integer = _itoa(va_arg(arg_l, int));
 	str_concat(integer, buffer, buffer_i);
 	*format_i += 2;
 }

@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -24,7 +23,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	buffer = _alloc(buffer);
+	buffer = _alloc(buffer, BUFFER);
 	va_start(arg_l, format);
 	while (format[format_i] != '\0')
 	{

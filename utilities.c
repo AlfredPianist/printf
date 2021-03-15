@@ -1,14 +1,12 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
  * _itoa - Converts a number to alpha depending on its base.
  * @number: The number to be converted.
- * @base: The base of the number.
  *
  * Return: The number converted to a string.
  */
-char *_itoa(long int number, short base)
+char *_itoa(long int number)
 {
 	long int numbercpy;
 	unsigned long int digitcount, counter, divisor;
@@ -17,6 +15,7 @@ char *_itoa(long int number, short base)
 
 	digitcount = counter = flagnegative = 0;
 	divisor = 1;
+	buffer = NULL;
 
 	if (number < 0)
 	{
@@ -30,16 +29,15 @@ char *_itoa(long int number, short base)
 	while (numbercpy != 0)
 	{
 		if (digitcount > 0)
-			divisor *= base;
-		numbercpy /= base;
+			divisor *= 10;
+		numbercpy /= 10;
 		digitcount++;
 	}
 
-	buffer = malloc(digitcount * sizeof(*buffer) + 1 + flagnegative);
+	buffer = _alloc(buffer, digitcount * sizeof(*buffer) + 1 + flagnegative);
 
 	if (flagnegative)
 		buffer[0] = '-';
-
 	while (counter < digitcount)
 	{
 		buffer[counter + flagnegative] = (number / divisor) + '0';
@@ -52,15 +50,29 @@ char *_itoa(long int number, short base)
 	return (buffer);
 }
 
-void str_concat(char *orig, char *buffer, unsigned int *buffer_i)
+/**
+ * rot13 - Converts a string to rot13 cypher.
+ * @str: The source string.
+ */
+void rot13(char *str)
 {
-	int index;
+	int index, i_rot, rot;
+	char ch[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	index = 0;
-	while (orig[index] != '\0')
+	index = rot = 0;
+
+	while (str[index] != '\0')
 	{
-		buffer[(*buffer_i)++] = orig[index++];
-		buffer = check_buffer(buffer, buffer_i);
+		for (i_rot = 0; ch[i_rot] != '\0'; i_rot++)
+		{
+			if (ch[i_rot] == str[index] && rot == 0)
+			{
+				str[index] = rot13[i_rot];
+				rot++;
+			}
+		}
+		index++;
+		rot = 0;
 	}
-	free(orig);
 }

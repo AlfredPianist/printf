@@ -20,8 +20,8 @@ int main(void)
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
 	/* /\* Integers - CHECK *\/ */
-	/* printf("MAX IIIINT = %d\n", INT_MAX); */
-	/* _printf("MAX IIIINT = %d\n", INT_MAX); */
+	printf("MAX IIIINT = %d\n", INT_MAX);
+	_printf("MAX IIIINT = %d\n", INT_MAX);
 	/* printf("MIN IIIINT = %d\n", INT_MIN); */
 	/* _printf("MIN IIIINT = %d\n", INT_MIN); */
 	/* _printf("Length:[%d, %i]\n", len, len); */
@@ -31,15 +31,6 @@ int main(void)
 	/* len2 = printf("Negative:[%d]\n", -762534); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
-	/* Flags */
-	/* len2 = _printf("%5c\n", 78); */
-	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
-
-	/* Precision */
-	printf("%+d\n", 1000000000);
-	printf("%08d\n", 123456);
-	printf("%#x\n", 1);
-	printf("% +1x\n", -10);
 	/* /\* Unsigned integers *\/ */
 	/* ui = (unsigned int)INT_MAX /\* + 1024 *\/; */
 	/* _printf("Unsigned:[%u]\n", ui); */
@@ -76,6 +67,20 @@ int main(void)
 	/* /\* Unknown format specifier - CHECK *\/ */
 	/* _printf("Unknown:[%r]\n"); */
 	/* printf("Unknown:[%r]\n"); */
+
+	/* Flags */
+	/* len2 = _printf("%5c\n", 78); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+
+	/* Precision */
+	/* printf("%+d\n", 1000000000); */
+	/* printf("%08d\n", 123456); */
+	/* printf("%#x\n", 1); */
+	/* printf("% +1x\n", -10); */
+
+	/* Rot13 - CHECK */
+	len2 = _printf("Hola Mundo en ROT13 = %R, y al reves = %R.\n", "Hola Mundo", "Ubyn Zhaqb");
+	_printf("Len 2 = %d\n", len2);
 
 	/* /\* Testing edge cases *\/ */
 	/* printf ("Testing edge cases\n"); */

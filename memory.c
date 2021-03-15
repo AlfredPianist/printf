@@ -3,14 +3,15 @@
 /**
  * _alloc - Allocates memory for the buffer to be printed.
  * @buffer: The pointer to the buffer to be printed.
+ * @size: The size of the buffer to be allocated.
  *
  * Return: The pointer to the buffer allocated
  *         or NULL if failed to allocate memory.
  */
-void *_alloc(void *buffer)
+void *_alloc(void *buffer, unsigned int size)
 {
 	buffer = NULL;
-	buffer = malloc(BUFFER);
+	buffer = malloc(size);
 	if (buffer == NULL)
 		return (NULL);
 	return (buffer);
