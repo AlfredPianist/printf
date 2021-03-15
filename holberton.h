@@ -1,12 +1,14 @@
 #ifndef _PRINTF_H_
 #define _PRINTF_H_
 
-#define BUFFER 1024
-
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
 
+/* When finished, delete following library */
+/* #include <stdio.h> */
+
+/* Structures */
 /**
  * struct format_s - A format specifier with its respective function.
  * @format: The format specifier.
@@ -18,31 +20,44 @@ typedef struct format_s
 	void (*format_f)(va_list, unsigned int *, unsigned int *, char *);
 } format_t;
 
+/* MAIN PROGRAM */
 int _printf(const char *format, ...);
-
 void (*get_format(char s))(va_list, unsigned int *, unsigned int *, char *);
 
-/* Format specifiers */
+/* FORMAT SPECIFIERS */
+/* Mandatory */
 void f_char(va_list arg_l,
-	    unsigned int *format_i, unsigned int *buffer_i,
+	    unsigned int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
 void f_str(va_list arg_l,
-	   unsigned int *format_i, unsigned int *buffer_i,
+	   unsigned int *buffer_i, unsigned int *buff_len,
 	   char *buffer);
 void f_perc(va_list arg_l,
-	    unsigned int *format_i, unsigned int *buffer_i,
+	    unsigned int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
 void f_int(va_list arg_l,
-	   unsigned int *format_i, unsigned int *buffer_i,
+	   unsigned int *buffer_i, unsigned int *buff_len,
 	   char *buffer);
 
+/* Advanced */
+void f_rot(va_list arg_l,
+	   unsigned int *buffer_i, unsigned int *buff_len,
+	   char *buffer);
+
+/* EXTRA */
 /* Utilities */
-char *_itoa(long int number, short base);
-void str_concat(char *orig, char *buffer, unsigned int *buffer_i);
+char *_itoa(long int number);
+void rot13(char *str);
+
+/* String manipulation */
+void str_concat(char *orig, char *buffer,
+		 unsigned int *buffer_i, unsigned int *buff_len);
+char *str_cpy(char *orig, char *dest);
 
 /* Memory management */
-void *_alloc(void *buffer);
-void *check_buffer(void *buffer, unsigned int *buffer_i);
+void *_alloc(void *buffer, unsigned int size);
+void check_buffer(char *buffer,
+		  unsigned int *buffer_i, unsigned int *buff_len, char c);
 void *_realloc(void *buffer, unsigned int old_size, unsigned int new_size);
 
 #endif

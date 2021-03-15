@@ -18,6 +18,7 @@ void (*get_format(char s))(va_list, unsigned int *, unsigned int *, char *)
 		{"%", f_perc},
 		{"d", f_int},
 		{"i", f_int},
+		{"R", f_rot},
 		{NULL, NULL}
 	};
 	unsigned int counter;

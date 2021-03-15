@@ -3,14 +3,15 @@
 /**
  * _alloc - Allocates memory for the buffer to be printed.
  * @buffer: The pointer to the buffer to be printed.
+ * @size: The size of the buffer to be allocated.
  *
  * Return: The pointer to the buffer allocated
  *         or NULL if failed to allocate memory.
  */
-void *_alloc(void *buffer)
+void *_alloc(void *buffer, unsigned int size)
 {
 	buffer = NULL;
-	buffer = malloc(BUFFER);
+	buffer = malloc(size);
 	if (buffer == NULL)
 		return (NULL);
 	return (buffer);
@@ -20,18 +21,26 @@ void *_alloc(void *buffer)
  * check_buffer - Checks the size of the buffer (buffer length).
  * @buffer: The pointer to the buffer.
  * @buffer_i: The current length of the buffer.
+ * @buff_len: The total length of the string to be printed.
+ * @c: The character to be added to the buffer.
  *
  * Description: Checks the current size of the buffer. If the buffer reaches
- *              a certain treshold (BUFFER size, or multiples of BUFFER),
- *              then it will reallocate its memory and copy its contents.
+ *              a certain treshold (BUFFER size), then it will prints its
+ *              contents and return to the first character.
  * Return: The pointer to the buffer.
  */
-
-void *check_buffer(void *buffer, unsigned int *buffer_i)
+void check_buffer(char *buffer,
+		  unsigned int *buffer_i, unsigned int *buff_len,
+		  char c)
 {
-	if (*buffer_i % BUFFER == 0)
-		buffer = _realloc(buffer, *buffer_i, *buffer_i + BUFFER);
-	return (buffer);
+	if (*buffer_i == 1024)
+	{
+		write(1, buffer, *buffer_i);
+		*buffer_i = 0;
+	}
+
+	buffer[(*buffer_i)++] = c;
+	*buff_len += 1;
 }
 
 /**
