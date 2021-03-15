@@ -14,38 +14,42 @@ int _printf(const char *format, ...)
 {
 	void (*form)(va_list, unsigned int *, unsigned int *, char *);
 	va_list arg_l;
-	unsigned int format_i, buffer_i;
+	unsigned int buffer_i, buff_len;
 	char *buffer;
 
-	format_i = buffer_i = 0;
-	buffer = NULL;
+	buffer_i = buff_len = 0, buffer = NULL;
+	buffer = _alloc(buffer, 1024);
 
-	if (format == NULL)
+	if (format == NULL || buffer == NULL ||
+	    (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
 
-	buffer = _alloc(buffer, BUFFER);
 	va_start(arg_l, format);
-	while (format[format_i] != '\0')
+	while (*format != '\0')
 	{
-		if (format[format_i] == '%')
+		if (*format == '%')
 		{
-			form = get_format(format[format_i + 1]);
+			if (*(format + 1) == '\0')
+			{
+				va_end(arg_l);
+				write(1, buffer, buffer_i), free(buffer);
+				return (-1);
+			}
+
+			form = get_format(*(format + 1));
 			if (form == NULL)
 			{
-				buffer[buffer_i++] = format[format_i++];
-				buffer = check_buffer(buffer, &buffer_i);
+				check_buffer(buffer, &buffer_i, &buff_len, *(format++));
 				continue;
 			}
-			form(arg_l, &format_i, &buffer_i, buffer);
+			form(arg_l, &buffer_i, &buff_len, buffer), format += 2;
 		}
 		else
-		{
-			buffer[buffer_i++] = format[format_i++];
-			buffer = check_buffer(buffer, &buffer_i);
-		}
+			check_buffer(buffer, &buffer_i, &buff_len, *(format++));
 	}
 	va_end(arg_l);
-	write(1, buffer, buffer_i);
-	free(buffer);
-	return (buffer_i);
+
+	buffer[buffer_i] = '\0';
+	write(1, buffer, buffer_i), free(buffer);
+	return (buff_len);
 }

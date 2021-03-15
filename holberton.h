@@ -1,14 +1,12 @@
 #ifndef _PRINTF_H_
 #define _PRINTF_H_
 
-#define BUFFER 1024
-
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
 
 /* When finished, delete following library */
-#include <stdio.h>
+/* #include <stdio.h> */
 
 /* Structures */
 /**
@@ -29,21 +27,21 @@ void (*get_format(char s))(va_list, unsigned int *, unsigned int *, char *);
 /* FORMAT SPECIFIERS */
 /* Mandatory */
 void f_char(va_list arg_l,
-	    unsigned int *format_i, unsigned int *buffer_i,
+	    unsigned int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
 void f_str(va_list arg_l,
-	   unsigned int *format_i, unsigned int *buffer_i,
+	   unsigned int *buffer_i, unsigned int *buff_len,
 	   char *buffer);
 void f_perc(va_list arg_l,
-	    unsigned int *format_i, unsigned int *buffer_i,
+	    unsigned int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
 void f_int(va_list arg_l,
-	   unsigned int *format_i, unsigned int *buffer_i,
+	   unsigned int *buffer_i, unsigned int *buff_len,
 	   char *buffer);
 
 /* Advanced */
 void f_rot(va_list arg_l,
-	   unsigned int *format_i, unsigned int *buffer_i,
+	   unsigned int *buffer_i, unsigned int *buff_len,
 	   char *buffer);
 
 /* EXTRA */
@@ -52,12 +50,14 @@ char *_itoa(long int number);
 void rot13(char *str);
 
 /* String manipulation */
-void str_concat(char *orig, char *buffer, unsigned int *buffer_i);
+void str_concat(char *orig, char *buffer,
+		 unsigned int *buffer_i, unsigned int *buff_len);
 char *str_cpy(char *orig, char *dest);
 
 /* Memory management */
 void *_alloc(void *buffer, unsigned int size);
-void *check_buffer(void *buffer, unsigned int *buffer_i);
+void check_buffer(char *buffer,
+		  unsigned int *buffer_i, unsigned int *buff_len, char c);
 void *_realloc(void *buffer, unsigned int old_size, unsigned int new_size);
 
 #endif

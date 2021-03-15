@@ -6,16 +6,15 @@
  * @buffer: The buffer.
  * @buffer_i: The index of the buffer.
  */
-void str_concat(char *orig, char *buffer, unsigned int *buffer_i)
+void str_concat(char *orig, char *buffer,
+		unsigned int *buffer_i, unsigned int *buff_len)
 {
 	int index;
 
 	index = 0;
 	while (orig[index] != '\0')
-	{
-		buffer[(*buffer_i)++] = orig[index++];
-		buffer = check_buffer(buffer, buffer_i);
-	}
+		check_buffer(buffer, buffer_i, buff_len, orig[index++]);
+
 	free(orig);
 }
 
