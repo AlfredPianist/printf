@@ -1,10 +1,23 @@
 #include "holberton.h"
-void (*get_format (char s))(va_list, unsigned int *, unsigned int *, char *)
+
+/**
+ * get_format - chooses the format to be used.
+ * @s: the character to be compared.
+ *
+ * Description: iterates from a set of formats of format_t type
+ *              and chooses the adecuate one. If it couldn't be found, return
+ *              NULL.
+ * Return: The pointer to the address of the format specifier to be operated.
+ *          Otherwise, return NULL.
+ */
+void (*get_format(char s))(va_list, unsigned int *, unsigned int *, char *)
 {
 	format_t formats[] = {
 		{"c", f_char},
 		{"s", f_str},
 		{"%", f_perc},
+		{"d", f_int},
+		{"i", f_int},
 		{NULL, NULL}
 	};
 	unsigned int counter;
@@ -20,30 +33,3 @@ void (*get_format (char s))(va_list, unsigned int *, unsigned int *, char *)
 	return (NULL);
 }
 
-void f_char(va_list format, unsigned int *counter_f, unsigned int *counter_s, char *str)
-{
-	str[*counter_s] = (char) va_arg(format, int);
-	*counter_f += 2;
-	*counter_s += 1;
-}
-
-void f_str(va_list format, unsigned int *counter_f, unsigned int *counter_s, char *str)
-{
-	char *str_2;
-
-	str_2 = va_arg(format, char *);
-	while (*str_2 != '\0')
-	{
-		str[*counter_s] = *str_2;
-		str_2++;
-		*counter_s += 1;
-	}
-	*counter_f += 2;
-}
-void f_perc(va_list format, unsigned int *counter_f, unsigned int *counter_s, char *str)
-{
-	format = format;
-	str[*counter_s] = '%';
-	*counter_f += 2;
-	*counter_s += 1;
-}
