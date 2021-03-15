@@ -1,0 +1,21 @@
+.TH Ourprintf "March 15 2021" "0.1" "_printf Manual Page"
+
+.SH NAME
+_printf - prints data output
+
+.SH SYNOPSIS
+_printf FORMAT [Argument]...
+.SH DESCRIPTION
+_printf is an emulation of the original printf
+.sp
+It produces an output of ARGUMENT(s) according to a FORMAT
+.sp
+Return:
+.sp
+In a successful return, these functions will return the number of characters printed (excluding the null byte used to end output to strings). Return -1 if fail.
+.SH AUTHOR
+Written by Alfredo Delgado and Daniel Ortega
+.SH BUGS
+For any encounter of errors please report to the mails:
+.sp
+2624@holbertonschool.com or 2917@holbertonschool.com
