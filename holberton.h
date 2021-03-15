@@ -59,5 +59,6 @@ void *_alloc(void *buffer, unsigned int size);
 void check_buffer(char *buffer,
 		  unsigned int *buffer_i, unsigned int *buff_len, char c);
 void *_realloc(void *buffer, unsigned int old_size, unsigned int new_size);
+int print_buffer(char *buffer, unsigned int *buff_len);
 
 #endif

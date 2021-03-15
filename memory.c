@@ -35,7 +35,7 @@ void check_buffer(char *buffer,
 {
 	if (*buffer_i == 1024)
 	{
-		write(1, buffer, *buffer_i);
+		print_buffer(buffer, buff_len);
 		*buffer_i = 0;
 	}
 
@@ -43,47 +43,11 @@ void check_buffer(char *buffer,
 	*buff_len += 1;
 }
 
-/**
- * _realloc - Reallocates memory depending on its new size.
- * @buffer: The array of memory originally allocated.
- * @old_size: The array's allocated old size.
- * @new_size: The array's new size to be allocated.
- *
- * Return: A pointer to the address if successful at allocating memory.
- *         Otherwise, returns NULL. NULL if new_size == 0.
- */
-void *_realloc(void *buffer, unsigned int old_size, unsigned int new_size)
+
+int print_buffer(char *buffer, unsigned int *buff_len)
 {
-	void *b_realloc;
-	unsigned int index;
+	int w_code;
 
-	b_realloc = NULL;
-	index = 0;
-
-	if (new_size == old_size)
-		return (buffer);
-
-	if (new_size == 0 && buffer != NULL)
-	{
-		free(buffer);
-		return (NULL);
-	}
-
-	if (buffer == NULL)
-	{
-		buffer = malloc(new_size);
-		if (buffer == NULL)
-			return (NULL);
-		return (buffer);
-	}
-
-	b_realloc = malloc(new_size);
-	if (b_realloc == NULL)
-		return (NULL);
-
-	for (index = 0; index < old_size && index < new_size; index++)
-		((char *) b_realloc)[index] = ((char *) buffer)[index];
-	free(buffer);
-
-	return (b_realloc);
+	w_code = write(1, buffer, *buff_len);
+	return (w_code);
 }
