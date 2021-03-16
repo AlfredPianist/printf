@@ -20,7 +20,8 @@ int _printf(const char *format, ...)
 	buffer_i = buff_len = 0, buffer = NULL;
 	buffer = _alloc(buffer, 1024);
 
-	if (format == NULL || buffer == NULL || (*format == '%' && !*(format + 1)))
+	if (format == NULL || buffer == NULL ||
+	    (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
 
 	va_start(arg_l, format);
@@ -30,9 +31,11 @@ int _printf(const char *format, ...)
 		{
 			if (*(format + 1) == '\0')
 			{
-				print_buffer(buffer, &buff_len), free(buffer), va_end(arg_l);
+				va_end(arg_l);
+				write(1, buffer, buffer_i), free(buffer);
 				return (-1);
 			}
+
 			form = get_format(*(format + 1));
 			if (form == NULL)
 			{
@@ -45,6 +48,8 @@ int _printf(const char *format, ...)
 			check_buffer(buffer, &buffer_i, &buff_len, *(format++));
 	}
 	va_end(arg_l);
-	buffer[buffer_i] = '\0', print_buffer(buffer, &buff_len), free(buffer);
+
+	buffer[buffer_i] = '\0';
+	write(1, buffer, buffer_i), free(buffer);
 	return (buff_len);
 }

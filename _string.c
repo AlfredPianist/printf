@@ -14,6 +14,8 @@ void str_concat(char *orig, char *buffer,
 	index = 0;
 	while (orig[index] != '\0')
 		check_buffer(buffer, buffer_i, buff_len, orig[index++]);
+
+	free(orig);
 }
 
 /**

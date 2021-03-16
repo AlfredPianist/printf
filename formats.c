@@ -11,10 +11,7 @@
 void f_char(va_list arg_l, unsigned int *buffer_i, unsigned int *buff_len,
 	    char *buffer)
 {
-	char c;
-
-	c = (char) va_arg(arg_l, int);
-	check_buffer(buffer, buffer_i, buff_len, c);
+	check_buffer(buffer, buffer_i, buff_len, (char) va_arg(arg_l, int));
 }
 
 /**
@@ -67,5 +64,4 @@ void f_int(va_list arg_l,
 
 	integer = _itoa(va_arg(arg_l, int));
 	str_concat(integer, buffer, buffer_i, buff_len);
-	free(integer);
 }
