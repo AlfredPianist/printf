@@ -9,17 +9,61 @@ _printf FORMAT [Argument]...
 _printf is an emulation of the original printf
 .sp
 It produces an output of ARGUMENT(s) according to a FORMAT
-.sp
-Return:
+.SH RETURN VALUE
 .sp
 In a successful return, these functions will return the number of characters printed (excluding the null byte used to end output to strings). Return -1 if fail.
-.SH AUTHOR
-Written by Alfredo Delgado and Daniel Ortega
+.sp
+There are different type of flags that are used when you want to print with printf which we also emulated in _printf, we will see them below:
+.sp
+%d, %i - Print anumber "%d" refering to a decimal number or "%i" to an integer (both are integer type)
+.sp
+%c - Prints characters
+.sp
+%s - Prints a string
+.sp
+%u - Prints an unsigned int
+.sp
+%r - prints a reversed string
+.sp
+%R - Prints the rot13'ed string
+.sp
+%o - Prints octal numbers
+.sp
+%b - Prints binary numbers
+
+.SH FORMAT
+The format string is the character % which will indicate the location and method to translate a piece of data
+.SH EXAMPLES
+.sp
+_printf("char: %c\n", 'H');
+.sp
+Output: char: H
+.sp
+_printf("string: %s\n", "Hello world !");
+.sp
+Output: string: Hello world !
+.sp
+_printf("integer: %i\n", 23);
+Output: integer: 23
+.sp
+_printf("decimal: %d\n", 10000);
+.sp
+Output: decimal: 10000
+.sp
+_printf("float: %f\n", 1.23);
+.sp
+Output: float: 1.23
+.sp
+_printf("octal %o\n", 92);
+Output: octal 134
+.sp
+_printf "percent: [%%]\n";
+.sp
+Output: percent: [%]
 .SH BUGS
 For any encounter of errors please report to the mails:
+.SH AUTHORS
+Written by Alfredo Delgado and Daniel Ortega
 .sp
-<<<<<<< HEAD
 2624@holbertonschool.com or 2917@holbertonschool.com
-=======
 2624@holbertonschool.com or 2917@holbertonschool.com
->>>>>>> main
