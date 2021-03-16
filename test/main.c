@@ -19,17 +19,17 @@ int main(void)
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
 
-	/* Integers - CHECK */
-	printf("MAX IIIINT = %d\n", INT_MAX);
-	_printf("MAX IIIINT = %d\n", INT_MAX);
-	printf("MIN IIIINT = %d\n", INT_MIN);
-	_printf("MIN IIIINT = %d\n", INT_MIN);
-	_printf("Length:[%d, %i]\n", len, len);
-	printf("Length:[%d, %i]\n", len2, len2);
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
-	len = _printf("Negative:[%d]\n", -762534);
-	len2 = printf("Negative:[%d]\n", -762534);
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
+	/* /\* Integers - CHECK *\/ */
+	/* printf("MAX IIIINT = %d\n", INT_MAX); */
+	/* _printf("MAX IIIINT = %d\n", INT_MAX); */
+	/* printf("MIN IIIINT = %d\n", INT_MIN); */
+	/* _printf("MIN IIIINT = %d\n", INT_MIN); */
+	/* _printf("Length:[%d, %i]\n", len, len); */
+	/* printf("Length:[%d, %i]\n", len2, len2); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+	/* len = _printf("Negative:[%d]\n", -762534); */
+	/* len2 = printf("Negative:[%d]\n", -762534); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
 	/* /\* Unsigned integers *\/ */
 	/* ui = (unsigned int)INT_MAX /\* + 1024 *\/; */
@@ -44,13 +44,16 @@ int main(void)
 	/* _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
 	/* printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
 
-	/* /\* Chars - CHECK *\/ */
-	/* len = _printf("Character:[%c]\n", 'H'); */
-	/* len2 = printf("Character:[%c]\n", 'H'); */
-	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
-	/* len = _printf("String:[%s]\n", "I am a string !"); */
-	/* len2 = printf("String:[%s]\n", "I am a string !"); */
-	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+	/* /\* Chars and strings - CHECK *\/ */
+	len = _printf("Character:[%c]\n", 'H');
+	len2 = printf("Character:[%c]\n", 'H');
+	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
+	len = _printf("String:[%s]\n", "I am a string !");
+	len2 = printf("String:[%s]\n", "I am a string !");
+	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
+	len = _printf("String:[%s]\n", "I am a string !");
+	len2 = printf("String:[%s]\n", "I am a string !");
+	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
 
 	/* /\* Addresses *\/ */
 	/* addr = (void *)0x7ffe637541f0; */
@@ -134,10 +137,10 @@ int main(void)
 	/* printf("Len 1 = %d, Len 2 = %d\n\n", len, len2); */
 
 	/* Check */
-	/* len = printf("1dkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlc123456789101112\n"); */
-	/* len2 = _printf("2dkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlc123456789101112\n"); */
-	/* printf("Case 9: testing buffer = %d\n", len + 1); */
-	/* printf("Len 1 = %d, Len 2 = %d\n\n", len + 1, len2 + 1); */
+	len = printf("1dkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlc1234567891012\n");
+	len2 = _printf("2dkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlc1234567891012\n");
+	printf("Case 9: testing buffer = %d\n", len + 1);
+	printf("Len 1 = %d, Len 2 = %d\n\n", len + 1, len2 + 1);
 
 	/* len = printf("printf 1%"); */
 	/* len2 = _printf("\nprintf 2%"); */
