@@ -4,6 +4,7 @@
  * str_concat - Concatenates a string to the buffer.
  * @orig: The string to be concatenated.
  * @buffer: The buffer.
+ * @buff_len: The length of buffer
  * @buffer_i: The index of the buffer.
  */
 void str_concat(char *orig, char *buffer,
@@ -20,6 +21,7 @@ void str_concat(char *orig, char *buffer,
  * str_cpy - Copies a string to another string.
  * @orig: The original string.
  * @dest: The destination string.
+ * Return: pointer to destination string
  */
 char *str_cpy(char *orig, char *dest)
 {
