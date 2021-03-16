@@ -35,7 +35,6 @@ int _printf(const char *format, ...)
 				write(1, buffer, buffer_i), free(buffer);
 				return (-1);
 			}
-
 			form = get_format(*(format + 1));
 			if (form == NULL)
 			{

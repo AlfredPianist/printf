@@ -18,46 +18,35 @@ char *_itoa(long int number)
 	buffer = NULL;
 
 	if (number < 0)
-	{
-		number *= -1;
-		flagnegative = 1;
-	}
+		number *= -1, flagnegative = 1;
 
 	if (number == 0)
 		digitcount = 1;
+
 	numbercpy = number;
 	while (numbercpy != 0)
 	{
 		if (digitcount > 0)
 			divisor *= 10;
-		numbercpy /= 10;
-		digitcount++;
+		numbercpy /= 10, digitcount++;
 	}
 
-	buffer = _alloc(buffer, digitcount * sizeof(*buffer) + 1 + flagnegative);
+	buffer = _alloc(buffer, (digitcount + 1 + flagnegative) * sizeof(*buffer));
 
-	if (flagnegative)
-		buffer[0] = '-';
-	while (counter < digitcount)
+	if (flagnegative == 1)
+		buffer[counter++] = '-';
+
+	while (counter < (digitcount + flagnegative))
 	{
-		buffer[counter + flagnegative] = (number / divisor) + '0';
-		number %= divisor;
-		divisor /= 10;
-		counter++;
+		buffer[counter++] = (number / divisor) + '0';
+		number %= divisor, divisor /= 10;
 	}
-	buffer[counter + flagnegative] = '\0';
+	buffer[counter] = '\0';
 
 	return (buffer);
 }
 
 /**
-<<<<<<< HEAD
- * rot13 - Converts a string to rot13 cypher.
- * @str: The source string.
- */
-void rot13(char *str)
-{
-=======
  * _uitoa_b_o_h - Converts an unsigned number to string, or binary, octal or
  *                hex, depending on its base.
  * @number: The number to be converted.
@@ -110,7 +99,6 @@ char *_uitoa_b_o_h(unsigned int number, short base, short upper)
  */
 void rot13(char *str)
 {
->>>>>>> main
 	int index, i_rot, rot;
 	char ch[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";

@@ -20,7 +20,7 @@ void f_char(va_list arg_l, unsigned int *buffer_i, unsigned int *buff_len,
  * @buffer_i: The address of the current position of the
  *             buffer to be printed.
  * @buff_len: The total length of the string to be printed.
- * @buffer: The pointer to the buffexr to be printed.
+ * @buffer: The pointer to the buffer to be printed.
  */
 void f_str(va_list arg_l, unsigned int *buffer_i, unsigned int *buff_len,
 	   char *buffer)
@@ -64,4 +64,5 @@ void f_int(va_list arg_l,
 
 	integer = _itoa(va_arg(arg_l, int));
 	str_concat(integer, buffer, buffer_i, buff_len);
+	free(integer);
 }

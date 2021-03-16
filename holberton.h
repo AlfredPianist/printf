@@ -6,7 +6,7 @@
 #include <stdarg.h>
 
 /* When finished, delete following library */
-/* #include <stdio.h> */
+#include <stdio.h>
 
 /* Structures */
 /**

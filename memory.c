@@ -33,12 +33,11 @@ void check_buffer(char *buffer,
 		  unsigned int *buffer_i, unsigned int *buff_len,
 		  char c)
 {
-	if (*buffer_i == 1024)
-	{
-		write(1, buffer, *buffer_i);
-		*buffer_i = 0;
-	}
-
+	/* if (*buffer_i == 1024) */
+	/* { */
+	/* 	write(1, buffer, *buffer_i); */
+	/* 	*buffer_i = 0; */
+	/* }	 */
 	buffer[(*buffer_i)++] = c;
 	*buff_len += 1;
 }
