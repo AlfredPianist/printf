@@ -11,7 +11,7 @@ int main(void)
 {
 	int len;
 	int len2;
-	/* unsigned int ui; */
+	unsigned int ui;
 	/* void *addr; */
 
 	/* /\* Sentence - CHECK *\/ */
@@ -32,17 +32,24 @@ int main(void)
 	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
 
 	/* /\* Unsigned integers *\/ */
-	/* ui = (unsigned int)INT_MAX /\* + 1024 *\/; */
-	/* _printf("Unsigned:[%u]\n", ui); */
-	/* printf("Unsigned:[%u]\n", ui); */
+	/* ui = (unsigned int)INT_MAX  + 1024; */
+	ui = -2;
+	len = _printf("Unsigned:[%u]\n", ui);
+	len2 = printf("Unsigned:[%u]\n", ui);
+	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
 
 	/* /\* Octals *\/ */
-	/* _printf("Unsigned octal:[%o]\n", ui); */
-	/* printf("Unsigned octal:[%o]\n", ui); */
+	len = _printf("Unsigned octal:[%o]\n", ui);
+	len2 = printf("Unsigned octal:[%o]\n", ui);
+	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
+
+	/* Binaries */
+	len = _printf("Unsigned binary:[%b]\n", ui);
+	_printf("Len %d\n", len);
 
 	/* /\* Hex *\/ */
-	/* _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
-	/* printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
+	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 
 	/* /\* Chars - CHECK *\/ */
 	/* len = _printf("Character:[%c]\n", 'H'); */
@@ -52,6 +59,22 @@ int main(void)
 	/* len2 = printf("String:[%s]\n", "I am a string !"); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
+	/* char l = 'F', o = 'X'; */
+	/* char *str = "WISTON"; */
+	/* char *str2 = "ALOHA"; */
+	/* printf("HOLA\n"); */
+	/* printf("HOLA"); */
+	/* printf("\n__\n"); */
+	/* printf("%c\n", l); */
+	/* _printf("%s %c", str, o); */
+	/* printf("\n-----------\n"); */
+	/* printf("%s %s\n", str, str2); */
+	/* _printf("%s%s HOLA", str, str2); */
+	/* printf("\n-----------\n"); */
+	/* printf("%%"); */
+	/* _printf("%%"); */
+	/* printf("\n"); */
+	
 	/* /\* Addresses *\/ */
 	/* addr = (void *)0x7ffe637541f0; */
 	/* _printf("Address:[%p]\n", addr); */

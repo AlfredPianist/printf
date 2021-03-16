@@ -13,11 +13,10 @@
 void (*get_format(char s))(va_list, unsigned int *, unsigned int *, char *)
 {
 	format_t formats[] = {
-		{"c", f_char},
-		{"s", f_str},
-		{"%", f_perc},
-		{"d", f_int},
-		{"i", f_int},
+		{"c", f_char}, {"s", f_str}, {"%", f_perc},
+		{"d", f_int}, {"i", f_int},
+		{"b", f_bin}, {"u", f_uint}, {"o", f_oct},
+		{"x", f_hexl}, {"X", f_hexu},
 		{"R", f_rot},
 		{NULL, NULL}
 	};
