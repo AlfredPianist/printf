@@ -20,16 +20,16 @@ int main(void)
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
 	/* Integers - CHECK */
-	printf("MAX IIIINT = %d\n", INT_MAX);
-	_printf("MAX IIIINT = %d\n", INT_MAX);
-	printf("MIN IIIINT = %d\n", INT_MIN);
-	_printf("MIN IIIINT = %d\n", INT_MIN);
-	_printf("Length:[%d, %i]\n", len, len);
-	printf("Length:[%d, %i]\n", len2, len2);
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
-	len = _printf("Negative:[%d]\n", -762534);
-	len2 = printf("Negative:[%d]\n", -762534);
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
+	/* printf("MAX IIIINT = %d\n", INT_MAX); */
+	/* _printf("MAX IIIINT = %d\n", INT_MAX); */
+	/* printf("MIN IIIINT = %d\n", INT_MIN); */
+	/* _printf("MIN IIIINT = %d\n", INT_MIN); */
+	/* _printf("Length:[%d, %i]\n", len, len); */
+	/* printf("Length:[%d, %i]\n", len2, len2); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+	/* len = _printf("Negative:[%d]\n", -762534); */
+	/* len2 = printf("Negative:[%d]\n", -762534); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
 	/* /\* Unsigned integers *\/ */
 	/* ui = (unsigned int)INT_MAX /\* + 1024 *\/; */
@@ -143,10 +143,9 @@ int main(void)
 	/* printf("Len 1 = %d, Len 2 = %d\n\n", len, len2); */
 
 	/* /\* Check *\/ */
-	/* printf("Case 10: only \"%%\".\n"); */
-	/* len = printf("%"); */
-	/* len2 = _printf("%"); */
-	/* printf("\nLen 1 = %d, Len 2 = %d\n\n", len, len2); */
+	printf("Case 10: only \"%%\".\n");
+	len = printf("%%%");
+	printf("\nLen 1 = %d, Len 2 = %d\n\n", len, len2);
 
 	/* /\* Check *\/ */
 	/* printf("Case 11: some string ending with \"%%\".\n"); */
