@@ -10,6 +10,19 @@ This is printf project is about building a function as similar as possible to th
 ## Flowchart of _printf implementation
 ![_printf flowchart](https://cdn.discordapp.com/attachments/819387081709191179/821551674429538314/Printf_planning_brainstorm_1.jpg)
 ![_printf flowchart #2](https://cdn.discordapp.com/attachments/819387081709191179/821551705099075634/Printf_planning_brainstorm_2.jpg)
+## Files and Descriptions
+| FILE  | DESCRIPTION |
+| ------------- | ------------- |
+| _printf  | Function that prints like printf  |
+| holberton.h  | Header file that contains our prototypes and includes.  |
+| get_format  | Chooses the format to be used.  |
+| formats.c  | Contains main function formats to print: %c, %s, '%', %d. |
+| formats_advanced_1.c  | Contains %R format specifier to encode to rot13, and %r to reverse a string|
+| formats_advanced_2.c  | Contains advanced function formats to print: %b, %u, %o, %X, %x  |
+| _string.c  |  Concatenates a string to the buffer to print the strings you want.  |
+| memory.c  | Checks size of buffer and allocates memory to be printed  |
+| utilities.c  | Contains: _itoa, _uitoa_b_o_h, rev_string, and rot13 functions |
+| man_3_printf  | Our manual with documentation about the function _printf  |
 ## Session log:
 
 #### 12/02/21

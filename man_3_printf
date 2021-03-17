@@ -1,38 +1,42 @@
 .TH Ourprintf "March 15 2021" "0.1" "_printf Manual Page"
 
 .SH NAME
-_printf - prints data output
+_printf - prints data output.
 
 .SH SYNOPSIS
 _printf FORMAT [Argument]...
 .SH DESCRIPTION
-_printf is an emulation of the original printf
+_printf is an emulation of the original printf.
 .sp
-It produces an output of ARGUMENT(s) according to a FORMAT
+It produces an output of ARGUMENT(s) according to a FORMAT.
 .SH RETURN VALUE
 .sp
 In a successful return, these functions will return the number of characters printed (excluding the null byte used to end output to strings). Return -1 if fail.
 .sp
 There are different type of flags that are used when you want to print with printf which we also emulated in _printf, we will see them below:
 .sp
-%d, %i - Print anumber "%d" refering to a decimal number or "%i" to an integer (both are integer type)
+%d, %i - Print a number "%d" refering to a decimal number or "%i" to an integer (both are integer type).
 .sp
-%c - Prints characters
+%X, %x - Prints hexadecimal. The  letters abcdef  are  used for x conversions and the letters ABCDEF are used for X conversions.
 .sp
-%s - Prints a string
+%c - The  int  argument  is converted  to an char, and prints the resulting characters.
 .sp
-%u - Prints an unsigned int
+% - A '%' is written. no argument is converted.
 .sp
-%r - prints a reversed string
+%s - Prints a string.
 .sp
-%R - Prints the rot13'ed string
+%u - Prints an unsigned int.
 .sp
-%o - Prints octal numbers
+%r - prints a reversed string.
 .sp
-%b - Prints binary numbers
+%R - Prints the rot13'ed string.
+.sp
+%o - Prints octal numbers.
+.sp
+%b - Prints binary numbers.
 
 .SH FORMAT
-The format string is the character % which will indicate the location and method to translate a piece of data
+The format string is the character % which will indicate the location and method to translate a piece of data.
 .SH EXAMPLES
 .sp
 _printf("char: %c\n", 'H');
