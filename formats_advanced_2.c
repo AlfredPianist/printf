@@ -16,6 +16,7 @@ void f_bin(va_list arg_l,
 
 	binary = _uitoa_b_o_h(va_arg(arg_l, unsigned int), 2, 0);
 	str_concat(binary, buffer, buffer_i, buff_len);
+	free(binary);
 }
 
 /**
@@ -34,6 +35,7 @@ void f_uint(va_list arg_l,
 
 	u_integer = _uitoa_b_o_h(va_arg(arg_l, unsigned int), 10, 0);
 	str_concat(u_integer, buffer, buffer_i, buff_len);
+	free(u_integer);
 }
 
 
@@ -53,6 +55,7 @@ void f_oct(va_list arg_l,
 
 	octal = _uitoa_b_o_h(va_arg(arg_l, unsigned int), 8, 0);
 	str_concat(octal, buffer, buffer_i, buff_len);
+	free(octal);
 }
 
 /**
@@ -71,6 +74,7 @@ void f_hexl(va_list arg_l,
 
 	hex = _uitoa_b_o_h(va_arg(arg_l, unsigned int), 16, 0);
 	str_concat(hex, buffer, buffer_i, buff_len);
+	free(hex);
 }
 
 /**
@@ -89,4 +93,5 @@ void f_hexu(va_list arg_l,
 
 	hex = _uitoa_b_o_h(va_arg(arg_l, unsigned int), 16, 1);
 	str_concat(hex, buffer, buffer_i, buff_len);
+	free(hex);
 }

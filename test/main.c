@@ -11,7 +11,7 @@ int main(void)
 {
 	int len;
 	int len2;
-	/* unsigned int ui; */
+	unsigned int ui;
 	/* void *addr; */
 
 	/* /\* Sentence - CHECK *\/ */
@@ -19,7 +19,7 @@ int main(void)
 	/* len2 = printf("Let's try to printf a simple sentence.\n"); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
-	/* Integers - CHECK */
+	/* /\* Integers - CHECK *\/ */
 	/* printf("MAX IIIINT = %d\n", INT_MAX); */
 	/* _printf("MAX IIIINT = %d\n", INT_MAX); */
 	/* printf("MIN IIIINT = %d\n", INT_MIN); */
@@ -32,9 +32,12 @@ int main(void)
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
 	/* /\* Unsigned integers *\/ */
-	/* ui = (unsigned int)INT_MAX /\* + 1024 *\/; */
+	/* ui = (unsigned int)INT_MAX + 1024; */
 	/* _printf("Unsigned:[%u]\n", ui); */
 	/* printf("Unsigned:[%u]\n", ui); */
+
+	/* /\* Binary *\/ */
+	/* _printf("Binary:[%b]\n", ui); */
 
 	/* /\* Octals *\/ */
 	/* _printf("Unsigned octal:[%o]\n", ui); */
@@ -68,8 +71,8 @@ int main(void)
 	/* printf("Len:[%d]\n", len2); */
 
 	/* /\* Unknown format specifier - CHECK *\/ */
-	/* _printf("Unknown:[%r]\n"); */
-	/* printf("Unknown:[%r]\n"); */
+	/* _printf("Unknown:[%y]\n"); */
+	/* printf("Unknown:[%y]\n"); */
 
 	/* Flags */
 	/* len2 = _printf("%5c\n", 78); */
@@ -81,7 +84,11 @@ int main(void)
 	/* printf("%#x\n", 1); */
 	/* printf("% +1x\n", -10); */
 
-	/* Rot13 - CHECK */
+	/* Reversed strings */
+	len2 = _printf("%r\n", "Hola mundo");
+	_printf("Len = %d\n", len2);
+
+	/* /\* Rot13 - CHECK *\/ */
 	/* len2 = _printf("Hola Mundo en ROT13 = %R, y al reves = %R.\n", "Hola Mundo", "Ubyn Zhaqb"); */
 	/* _printf("Len 2 = %d\n", len2); */
 
@@ -136,16 +143,17 @@ int main(void)
 	/* len2 = _printf("%s\n", NULL); */
 	/* printf("Len 1 = %d, Len 2 = %d\n\n", len, len2); */
 
-	/* Check */
+	/* /\* Check *\/ */
 	/* printf("Case 9: testing buffer.\n"); */
 	/* len = printf("1dkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlc1234567891012\n"); */
 	/* len2 = _printf("2dkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlclcakfbkjdhflbbhkjljkfsdcfshlsbkjsdlkkascshlbhbjdkfasofhjaldkjfvbakdsjhfvlkjshaflkvsaflhkffakkdfasfdjsalfkjfasdkfljhasdkfljhaskdjflhakdjflakdjsfdjldjssajdhjsljdlc1234567891012\n"); */
 	/* printf("Len 1 = %d, Len 2 = %d\n\n", len, len2); */
 
 	/* /\* Check *\/ */
-	printf("Case 10: only \"%%\".\n");
-	len = printf("%%%");
-	printf("\nLen 1 = %d, Len 2 = %d\n\n", len, len2);
+	/* printf("Case 10: only \"%%%\".\n"); */
+	/* len = _printf("%%%"); */
+	/* len2 = printf("%%%"); */
+	/* printf("\nLen 1 = %d, Len 2 = %d\n\n", len, len2); */
 
 	/* /\* Check *\/ */
 	/* printf("Case 11: some string ending with \"%%\".\n"); */
@@ -153,7 +161,7 @@ int main(void)
 	/* len2 = _printf("printf 2%"); */
 	/* printf("\nLen 1 = %d, Len 2 = %d\n\n", len, len2); */
 
-	/* Check */
+	/* /\* Check *\/ */
 	/* printf("Case 12: multiple strings and chars.\n"); */
 	/* len = printf("%s %c", NULL, 'C'); */
 	/* len2 = _printf("%s %c", NULL, 'C'); */

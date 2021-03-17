@@ -77,7 +77,7 @@ char *_uitoa_b_o_h(unsigned int number, short base, short upper)
 
 	while (counter < digitcount)
 	{
-		if (base == 16 && (number / divisor > 9))
+		if (number / divisor > 9)
 		{
 			if (upper)
 				buffer[counter] = (number / divisor) + 'A' - 10;
@@ -94,28 +94,54 @@ char *_uitoa_b_o_h(unsigned int number, short base, short upper)
 }
 
 /**
+ * rev_string - reverses a string.
+ * @str: the string to be reversed.
+ */
+void rev_string(char *str)
+{
+	unsigned int length, counter;
+	char curr_char;
+
+	length = counter = 0;
+
+	for (length = 0; str[length] != '\0'; length++)
+		;
+
+	if (length > 0)
+	{
+		length--;
+		for (counter = 0; counter < length; )
+		{
+			curr_char = str[counter];
+			str[counter++] = str[length];
+			str[length--] = curr_char;
+		}
+	}
+}
+
+/**
  * rot13 - Converts a string to rot13 cypher.
  * @str: The source string.
  */
 void rot13(char *str)
 {
-	int index, i_rot, rot;
+	int index, i_rot;
 	char ch[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	index = rot = 0;
+	index = i_rot = 0;
 
 	while (str[index] != '\0')
 	{
 		for (i_rot = 0; ch[i_rot] != '\0'; i_rot++)
 		{
-			if (ch[i_rot] == str[index] && rot == 0)
+			if (ch[i_rot] == str[index])
 			{
 				str[index] = rot13[i_rot];
-				rot++;
+				break;
 			}
 		}
 		index++;
-		rot = 0;
 	}
 }
+

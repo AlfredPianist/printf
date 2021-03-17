@@ -22,7 +22,10 @@ int _printf(const char *format, ...)
 
 	if (format == NULL || buffer == NULL ||
 	    (*format == '%' && *(format + 1) == '\0'))
+	{
+		free(buffer);
 		return (-1);
+	}
 
 	va_start(arg_l, format);
 	while (*format != '\0')
@@ -31,8 +34,7 @@ int _printf(const char *format, ...)
 		{
 			if (*(format + 1) == '\0')
 			{
-				va_end(arg_l);
-				write(1, buffer, buffer_i), free(buffer);
+				va_end(arg_l), write(1, buffer, buffer_i), free(buffer);
 				return (-1);
 			}
 			form = get_format(*(format + 1));
@@ -47,8 +49,6 @@ int _printf(const char *format, ...)
 			check_buffer(buffer, &buffer_i, &buff_len, *(format++));
 	}
 	va_end(arg_l);
-
-	buffer[buffer_i] = '\0';
-	write(1, buffer, buffer_i), free(buffer);
+	buffer[buffer_i] = '\0', write(1, buffer, buffer_i), free(buffer);
 	return (buff_len);
 }
