@@ -1,5 +1,5 @@
 # _printf
-This is printf project is about building a function as similar as possible to the original printf.
+This _printf project is about building a function as similar as possible to the original printf.
 
 # Features
 - The main function uses structures to call the function corresponding to the case.
@@ -7,9 +7,6 @@ This is printf project is about building a function as similar as possible to th
 - The returns of our function are the number of characters printed, and when there's an incorrect input the return is going to be -1 as an error, just like the original printf.
 
 ------
-## Flowchart of _printf implementation
-![_printf flowchart](https://cdn.discordapp.com/attachments/819387081709191179/821551674429538314/Printf_planning_brainstorm_1.jpg)
-![_printf flowchart #2](https://cdn.discordapp.com/attachments/819387081709191179/821551705099075634/Printf_planning_brainstorm_2.jpg)
 ## Files and Descriptions
 | FILE  | DESCRIPTION |
 | ------------- | ------------- |
@@ -23,6 +20,21 @@ This is printf project is about building a function as similar as possible to th
 | memory.c  | Checks size of buffer and allocates memory to be printed  |
 | utilities.c  | Contains: _itoa, _uitoa_b_o_h, rev_string, and rot13 functions |
 | man_3_printf  | Our manual with documentation about the function _printf  |
+## Flowchart of main functions implementation:
+### _printf.c
+![_printf](https://cdn.discordapp.com/attachments/819387081709191179/821805551226585128/Printf_planning_brainstorm_-__printf.c.jpg "_printf")
+### get_format.c
+![get_format.c](https://cdn.discordapp.com/attachments/819387081709191179/821805746688884757/Printf_planning_brainstorm_-_get_format.c.jpg "get_format.c")
+### formats.c
+![formats.c](https://cdn.discordapp.com/attachments/819387081709191179/821805229271810113/Printf_planning_brainstorm_-_formats.c_1.jpg "formats.c")
+### _string.c
+![string.c](https://cdn.discordapp.com/attachments/819387081709191179/821801925342396446/Printf_planning_brainstorm_-__string.c.jpg "string.c")
+### memory.c
+![memory.c](https://cdn.discordapp.com/attachments/819387081709191179/821801870582480976/Printf_planning_brainstorm_-_memory.c.jpg "memory.c")
+### utilities.c
+![utilities](https://cdn.discordapp.com/attachments/819387081709191179/821803591600963635/Printf_planning_brainstorm_-_utilities.c.jpg "utilities")
+
+------
 ## Session log:
 
 #### 12/02/21
