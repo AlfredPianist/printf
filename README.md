@@ -1,6 +1,10 @@
-# README
+# _printf
+This is printf project is about building a function as similar as possible to the original printf.
 
-This is the printf project.
+# Features
+- The main function uses structures to call the function corresponding to the case.
+- The function has a buffer that stores and prints the output strings every 1024 bytes just like the original printf.
+- The returns of our function are the number of characters printed, and when there's an incorrect input the return is going to be -1 as an error, just like the original printf.
 
 ------
 ## Flowchart of _printf impementation
