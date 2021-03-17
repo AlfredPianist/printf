@@ -3,7 +3,9 @@
 This is the printf project.
 
 ------
-
+## Flowchart of _printf impementation
+![_printf flowchart](https://cdn.discordapp.com/attachments/819387081709191179/821551674429538314/Printf_planning_brainstorm_1.jpg)
+![_printf flowchart #2](https://cdn.discordapp.com/attachments/819387081709191179/821551705099075634/Printf_planning_brainstorm_2.jpg)
 ## Session log:
 
 #### 12/02/21
