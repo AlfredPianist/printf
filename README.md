@@ -7,7 +7,7 @@ This is printf project is about building a function as similar as possible to th
 - The returns of our function are the number of characters printed, and when there's an incorrect input the return is going to be -1 as an error, just like the original printf.
 
 ------
-## Flowchart of _printf impementation
+## Flowchart of _printf implementation
 ![_printf flowchart](https://cdn.discordapp.com/attachments/819387081709191179/821551674429538314/Printf_planning_brainstorm_1.jpg)
 ![_printf flowchart #2](https://cdn.discordapp.com/attachments/819387081709191179/821551705099075634/Printf_planning_brainstorm_2.jpg)
 ## Session log:
