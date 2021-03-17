@@ -28,12 +28,11 @@ This _printf project is about building a function as similar as possible to the 
 ### formats.c
 ![formats.c](https://cdn.discordapp.com/attachments/819387081709191179/821805229271810113/Printf_planning_brainstorm_-_formats.c_1.jpg "formats.c")
 ### _string.c
-![string.c](https://cdn.discordapp.com/attachments/819387081709191179/821801925342396446/Printf_planning_brainstorm_-__string.c.jpg "string.c")
+![string.c](https://cdn.discordapp.com/attachments/819387081709191179/821806428737241128/Printf_planning_brainstorm_-__string.c.jpg "string.c")
 ### memory.c
-![memory.c](https://cdn.discordapp.com/attachments/819387081709191179/821801870582480976/Printf_planning_brainstorm_-_memory.c.jpg "memory.c")
+![memory.c](https://cdn.discordapp.com/attachments/819387081709191179/821806448743809074/Printf_planning_brainstorm_-_memory.c.jpg "memory.c")
 ### utilities.c
-![utilities](https://cdn.discordapp.com/attachments/819387081709191179/821803591600963635/Printf_planning_brainstorm_-_utilities.c.jpg "utilities")
-
+![utilities.c](https://cdn.discordapp.com/attachments/819387081709191179/821806476712476732/Printf_planning_brainstorm_-_utilities.c.jpg "utilities.c")
 ------
 ## Session log:
 
