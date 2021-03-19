@@ -12,7 +12,7 @@ int main(void)
 	int len;
 	int len2;
 	unsigned int ui;
-	/* void *addr; */
+	void *addr;
 
 	/* /\* Sentence - CHECK *\/ */
 	/* len =  _printf("Let's try to printf a simple sentence.\n"); */
@@ -59,17 +59,26 @@ int main(void)
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
 	/* %S specifier */
-	_printf("%S", "No special character.");
-	_printf("%S", "\n\n");
-	_printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
-	_printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
-	_printf("");
-	_printf("- What did you say?\n- %S\n- That's what I thought.\n", "");
+	/* _printf("%S", "No special character."); */
+	/* _printf("%S", "\n\n"); */
+	/* _printf("%S", "\x01\x02\x03\x04\x05\x06\x07"); */
+	/* _printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n"); */
+	/* _printf(""); */
+	/* _printf("- What did you say?\n- %S\n- That's what I thought.\n", ""); */
 
-	/* /\* Addresses *\/ */
+	/* /\* Addresses - CHECK *\/ */
 	/* addr = (void *)0x7ffe637541f0; */
 	/* _printf("Address:[%p]\n", addr); */
 	/* printf("Address:[%p]\n", addr); */
+	/* _printf("%p", (void *)0x7fff5100b608); */
+	/* len = printf("%p", NULL); */
+	/* len2 = _printf("%p", NULL); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+	/* _printf("Can you print an address?\n%p\nNice!\n", (void *)0x7fff5100b6f8); */
+	/* _printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", (void *)0x7fff5100b6f8, (void *)0x7faf51f0f608, (void *)0x6ff42510b6f8, (void *)0x7fff510236f8); */
+	/* _printf(""); */
+	/* _printf("Can you print an address?\n%p\nNice!\n", (void *)-1); */
+	/* _printf("%pppp", (void *)0x7fff5100b6f8); */
 
 	/* /\* Percent sign - CHECK *\/ */
 	/* len = _printf("Percent:[%%]\n"); */

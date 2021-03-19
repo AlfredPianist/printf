@@ -1,6 +1,38 @@
 #include "holberton.h"
 
 /**
+ * f_add - The "%p" format specifier.
+ * @arg_l: The argument list to be operated.
+ * @buffer_i: The address of the current position of the
+ *             buffer to be printed.
+ * @buff_len: The total length of the string to be printed.
+ * @buffer: The pointer to the buffer to be printed.
+ */
+void f_add(va_list arg_l,
+	   unsigned int *buffer_i, unsigned int *buff_len,
+	   char *buffer)
+{
+	void *add;
+	char *add_s;
+	unsigned long int add_u;
+
+	add = va_arg(arg_l, void *);
+	if (add == NULL)
+		add_s = "(nil)";
+	else
+	{
+		add_u = (unsigned long int) add;
+		add_s = _uitoa_b_o_h(add_u, 16, 0);
+		check_buffer(buffer, buffer_i, buff_len, '0');
+		check_buffer(buffer, buffer_i, buff_len, 'x');
+	}
+	str_concat(add_s, buffer, buffer_i, buff_len);
+	if (add != NULL)
+		free(add_s);
+}
+
+
+/**
  * f_strh - The "%S" format specifier.
  * @arg_l: The argument list to be operated.
  * @buffer_i: The address of the current position of the

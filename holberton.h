@@ -55,6 +55,9 @@ void f_hexu(va_list arg_l,
 void f_hexl(va_list arg_l,
 	    unsigned int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
+void f_add(va_list arg_l,
+	   unsigned int *buffer_i, unsigned int *buff_len,
+	   char *buffer);
 void f_strh(va_list arg_l,
 	    unsigned int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
@@ -68,7 +71,7 @@ void f_rot(va_list arg_l,
 /* EXTRA */
 /* Utilities */
 char *_itoa(long int number);
-char *_uitoa_b_o_h(unsigned int number, short base, short upper);
+char *_uitoa_b_o_h(unsigned long int number, short base, short upper);
 void rev_string(char *str);
 void rot13(char *str);
 

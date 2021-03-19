@@ -55,10 +55,10 @@ char *_itoa(long int number)
  *
  * Return: The number converted to a string.
  */
-char *_uitoa_b_o_h(unsigned int number, short base, short upper)
+char *_uitoa_b_o_h(unsigned long int number, short base, short upper)
 {
-	unsigned int numbercpy;
-	unsigned int digitcount, counter, divisor;
+	unsigned long int numbercpy;
+	unsigned long int digitcount, counter, divisor;
 	char *buffer;
 
 	digitcount = counter = 0, divisor = 1, buffer = NULL;
