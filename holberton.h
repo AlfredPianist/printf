@@ -55,6 +55,9 @@ void f_hexu(va_list arg_l,
 void f_hexl(va_list arg_l,
 	    unsigned int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
+void f_strh(va_list arg_l,
+	    unsigned int *buffer_i, unsigned int *buff_len,
+	    char *buffer);
 void f_rev(va_list arg_l,
 	   unsigned int *buffer_i, unsigned int *buff_len,
 	   char *buffer);
@@ -73,6 +76,7 @@ void rot13(char *str);
 void str_concat(char *orig, char *buffer,
 		 unsigned int *buffer_i, unsigned int *buff_len);
 char *str_cpy(char *orig, char *dest);
+char *str_cpy_h(char *orig, char *dest);
 
 /* Memory management */
 void *_alloc(void *buffer, unsigned int size);

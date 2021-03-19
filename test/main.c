@@ -58,6 +58,14 @@ int main(void)
 	/* len2 = printf("String:[%s]\n", "I am a string !"); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
+	/* %S specifier */
+	_printf("%S", "No special character.");
+	_printf("%S", "\n\n");
+	_printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
+	_printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
+	_printf("");
+	_printf("- What did you say?\n- %S\n- That's what I thought.\n", "");
+
 	/* /\* Addresses *\/ */
 	/* addr = (void *)0x7ffe637541f0; */
 	/* _printf("Address:[%p]\n", addr); */
@@ -84,9 +92,9 @@ int main(void)
 	/* printf("%#x\n", 1); */
 	/* printf("% +1x\n", -10); */
 
-	/* Reversed strings */
-	len2 = _printf("%r\n", "Hola mundo");
-	_printf("Len = %d\n", len2);
+	/* Reversed strings - CHECK */
+	/* len2 = _printf("%r\n", "Hola mundo"); */
+	/* _printf("Len = %d\n", len2); */
 
 	/* /\* Rot13 - CHECK *\/ */
 	/* len2 = _printf("Hola Mundo en ROT13 = %R, y al reves = %R.\n", "Hola Mundo", "Ubyn Zhaqb"); */

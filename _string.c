@@ -38,3 +38,41 @@ char *str_cpy(char *orig, char *dest)
 
 	return (dest);
 }
+
+/**
+ * str_cp_h - Copies a string to another string, if the string has
+ *            non printable characters, then convert them to hex: \xXX.
+ * @orig: The original string.
+ * @dest: The destination string.
+ * Return: pointer to destination string
+ */
+char *str_cpy_h(char *orig, char *dest)
+{
+	unsigned int index_o, index_d, index_h;
+	char *hex;
+
+	index_o = index_d = index_h = 0;
+	hex = NULL;
+
+	while (orig[index_o] != '\0')
+	{
+		if (orig[index_o] < 32 || orig[index_o] >= 127)
+		{
+			hex = _uitoa_b_o_h(orig[index_o], 16, 1);
+			dest[index_d++] = '\\';
+			dest[index_d++] = 'x';
+			if (hex[index_h + 1] == '\0')
+				dest[index_d++] = '0';
+			while (hex[index_h] != '\0')
+				dest[index_d++] = hex[index_h++];
+			free(hex);
+			index_o++;
+			index_h = 0;
+		}
+		else
+			dest[index_d++] = orig[index_o++];
+	}
+
+	dest[index_d] = '\0';
+	return (dest);
+}
