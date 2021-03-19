@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <limits.h>
 
 /* When finished, delete following library */
 #include <stdio.h>
@@ -22,7 +23,7 @@ typedef struct format_s
 
 /* MAIN PROGRAM */
 int _printf(const char *format, ...);
-void (*get_format(char s))(va_list, unsigned int *, unsigned int *, char *);
+void (*get_f(const char *f))(va_list, unsigned int *, unsigned int *, char *);
 
 /* FORMAT SPECIFIERS */
 /* Mandatory */
@@ -40,6 +41,7 @@ void f_int(va_list arg_l,
 	   char *buffer);
 
 /* Advanced */
+/* Formats */
 void f_bin(va_list arg_l,
 	   unsigned int *buffer_i, unsigned int *buff_len,
 	   char *buffer);
@@ -68,6 +70,14 @@ void f_rot(va_list arg_l,
 	   unsigned int *buffer_i, unsigned int *buff_len,
 	   char *buffer);
 
+/* Modifiers */
+void m_ld(va_list arg_l,
+	  unsigned int *buffer_i, unsigned int *buff_len,
+	  char *buffer);
+void m_lu(va_list arg_l,
+	  unsigned int *buffer_i, unsigned int *buff_len,
+	  char *buffer);
+
 /* EXTRA */
 /* Utilities */
 char *_itoa(long int number);
@@ -77,9 +87,10 @@ void rot13(char *str);
 
 /* String manipulation */
 void str_concat(char *orig, char *buffer,
-		 unsigned int *buffer_i, unsigned int *buff_len);
+		unsigned int *buffer_i, unsigned int *buff_len);
 char *str_cpy(char *orig, char *dest);
 char *str_cpy_h(char *orig, char *dest);
+int str_cmp(const char *str1, char *str2);
 
 /* Memory management */
 void *_alloc(void *buffer, unsigned int size);

@@ -24,6 +24,7 @@ char *_itoa(long int number)
 		digitcount = 1;
 
 	numbercpy = number;
+
 	while (numbercpy != 0)
 	{
 		if (digitcount > 0)
@@ -41,8 +42,8 @@ char *_itoa(long int number)
 		buffer[counter++] = (number / divisor) + '0';
 		number %= divisor, divisor /= 10;
 	}
-	buffer[counter] = '\0';
 
+	buffer[counter] = '\0';
 	return (buffer);
 }
 

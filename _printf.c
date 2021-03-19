@@ -15,9 +15,10 @@ int _printf(const char *format, ...)
 	void (*form)(va_list, unsigned int *, unsigned int *, char *);
 	va_list arg_l;
 	unsigned int buffer_i, buff_len;
+	short f_index;
 	char *buffer;
 
-	buffer_i = buff_len = 0, buffer = NULL;
+	buffer_i = buff_len = f_index = 0, buffer = NULL;
 	buffer = _alloc(buffer, 1024);
 
 	if (format == NULL || buffer == NULL ||
@@ -37,7 +38,7 @@ int _printf(const char *format, ...)
 				va_end(arg_l), write(1, buffer, buffer_i), free(buffer);
 				return (-1);
 			}
-			form = get_format(*(format + 1));
+			form = get_f(++format);
 			if (form == NULL)
 			{
 				check_buffer(buffer, &buffer_i, &buff_len, *(format++));

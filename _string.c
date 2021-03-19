@@ -76,3 +76,17 @@ char *str_cpy_h(char *orig, char *dest)
 	dest[index_d] = '\0';
 	return (dest);
 }
+
+int str_cmp(const char *str1, char *str2)
+{
+	short index;
+
+	index = 0;
+	while (str1[index] != '\0' || str2[index] != '\0')
+	{
+		if (str1[index] != str2[index])
+			return (0);
+		index++;
+	}
+	return (1);
+}

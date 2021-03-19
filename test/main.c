@@ -31,19 +31,19 @@ int main(void)
 	/* len2 = printf("Negative:[%d]\n", -762534); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
-	/* /\* Unsigned integers *\/ */
+	/* /\* Unsigned integers - CHECK *\/ */
 	/* ui = (unsigned int)INT_MAX + 1024; */
 	/* _printf("Unsigned:[%u]\n", ui); */
 	/* printf("Unsigned:[%u]\n", ui); */
 
-	/* /\* Binary *\/ */
+	/* /\* Binary - CHECK *\/ */
 	/* _printf("Binary:[%b]\n", ui); */
 
-	/* /\* Octals *\/ */
+	/* /\* Octals - CHECK *\/ */
 	/* _printf("Unsigned octal:[%o]\n", ui); */
 	/* printf("Unsigned octal:[%o]\n", ui); */
 
-	/* /\* Hex *\/ */
+	/* /\* Hex - CHECK *\/ */
 	/* _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
 	/* printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
 
@@ -58,7 +58,7 @@ int main(void)
 	/* len2 = printf("String:[%s]\n", "I am a string !"); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
-	/* %S specifier */
+	/* /\* %S specifier - CHECK *\/ */
 	/* _printf("%S", "No special character."); */
 	/* _printf("%S", "\n\n"); */
 	/* _printf("%S", "\x01\x02\x03\x04\x05\x06\x07"); */
@@ -90,6 +90,34 @@ int main(void)
 	/* /\* Unknown format specifier - CHECK *\/ */
 	/* _printf("Unknown:[%y]\n"); */
 	/* printf("Unknown:[%y]\n"); */
+
+	/* Modifiers */
+	_printf("%ld", 1024L);
+	_printf("\n");
+	_printf("%ld", -1024L);
+	_printf("\n");
+	_printf("%ld", 0L);
+	_printf("\n");
+	_printf("%ld", LONG_MAX);
+	_printf("\n");
+	_printf("%ld", LONG_MIN);
+	_printf("\n");
+	_printf("There is %ld bytes in %ld KB\n", 1024L, 1L);
+	_printf("%ld - %ld = %ld\n", 1024L, 2048L, -1024L);
+	_printf("%ld + %ld = %ld\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
+	_printf("%li", 1024L);
+	_printf("\n");
+	_printf("%li", -1024L);
+	_printf("\n");
+	_printf("%li", 0L);
+	_printf("\n");
+	_printf("%li", LONG_MAX);
+	_printf("\n");
+	_printf("%li", LONG_MIN);
+	_printf("\n");
+	_printf("There is %li bytes in %li KB\n", 1024L, 1L);
+	_printf("%li - %li = %li\n", 1024L, 2048L, -1024L);
+	_printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
 
 	/* Flags */
 	/* len2 = _printf("%5c\n", 78); */
