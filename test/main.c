@@ -105,25 +105,27 @@ int main(void)
 	/* _printf("There is %ld bytes in %ld KB\n", 1024L, 1L); */
 	/* _printf("%ld - %ld = %ld\n", 1024L, 2048L, -1024L); */
 	/* _printf("%ld + %ld = %ld\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX)); */
-	_printf("%li", 1024L);
-	_printf("\n");
-	_printf("%li", -1024L);
-	_printf("\n");
-	_printf("%li", 0L);
-	_printf("\n");
-	_printf("%li", LONG_MAX);
-	_printf("\n");
-	_printf("%li", LONG_MIN);
-	_printf("\n");
-	_printf("There is %li bytes in %li KB\n", 1024L, 1L);
-	_printf("%li - %li = %li\n", 1024L, 2048L, -1024L);
-	_printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
-	_printf("%lu", 1024UL);
-	_printf("%lu", 0UL);
-	_printf("%lu", ULONG_MAX);
-	_printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL);
-	_printf("%lu - %lu = %lu\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
-	
+	/* _printf("%li", 1024L); */
+	/* _printf("\n"); */
+	/* _printf("%li", -1024L); */
+	/* _printf("\n"); */
+	/* _printf("%li", 0L); */
+	/* _printf("\n"); */
+	/* _printf("%li", LONG_MAX); */
+	/* _printf("\n"); */
+	/* _printf("%li", LONG_MIN); */
+	/* _printf("\n"); */
+	/* _printf("There is %li bytes in %li KB\n", 1024L, 1L); */
+	/* _printf("%li - %li = %li\n", 1024L, 2048L, -1024L); */
+	/* _printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX)); */
+	/* _printf("%lu", 1024UL); */
+	/* _printf("%lu", 0UL); */
+	/* _printf("%lu", ULONG_MAX); */
+	/* _printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL); */
+	/* _printf("%lu - %lu = %lu\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL); */
+	_printf("%h\n");
+	_printf("%l\n");
+
 	/* Flags */
 	/* len2 = _printf("%5c\n", 78); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
