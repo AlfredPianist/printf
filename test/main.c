@@ -14,97 +14,97 @@ int main(void)
 	unsigned int ui;
 	void *addr;
 
-	/* Sentence - CHECK */
-	len =  _printf("Let's try to printf a simple sentence.\n");
-	len2 = printf("Let's try to printf a simple sentence.\n");
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
+	/* /\* Sentence - CHECK *\/ */
+	/* len =  _printf("Let's try to printf a simple sentence.\n"); */
+	/* len2 = printf("Let's try to printf a simple sentence.\n"); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
-	/* Integers - CHECK */
-	printf("MAX IIIINT = %d\n", INT_MAX);
-	_printf("MAX IIIINT = %d\n", INT_MAX);
-	printf("MIN IIIINT = %d\n", INT_MIN);
-	_printf("MIN IIIINT = %d\n", INT_MIN);
-	_printf("Length:[%d, %i]\n", len, len);
-	printf("Length:[%d, %i]\n", len2, len2);
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
-	len = _printf("Negative:[%d]\n", -762534);
-	len2 = printf("Negative:[%d]\n", -762534);
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
+	/* /\* Integers - CHECK *\/ */
+	/* printf("MAX IIIINT = %d\n", INT_MAX); */
+	/* _printf("MAX IIIINT = %d\n", INT_MAX); */
+	/* printf("MIN IIIINT = %d\n", INT_MIN); */
+	/* _printf("MIN IIIINT = %d\n", INT_MIN); */
+	/* _printf("Length:[%d, %i]\n", len, len); */
+	/* printf("Length:[%d, %i]\n", len2, len2); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+	/* len = _printf("Negative:[%d]\n", -762534); */
+	/* len2 = printf("Negative:[%d]\n", -762534); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
-	/* Unsigned integers - CHECK */
-	ui = (unsigned int)INT_MAX + 1024;
-	_printf("Unsigned:[%u]\n", ui);
-	printf("Unsigned:[%u]\n", ui);
+	/* /\* Unsigned integers - CHECK *\/ */
+	/* ui = (unsigned int)INT_MAX + 1024; */
+	/* _printf("Unsigned:[%u]\n", ui); */
+	/* printf("Unsigned:[%u]\n", ui); */
 
-	/* Binary - CHECK */
-	_printf("Binary:[%b]\n", ui);
+	/* /\* Binary - CHECK *\/ */
+	/* _printf("Binary:[%b]\n", ui); */
 
-	/* Octals - CHECK */
-	_printf("Unsigned octal:[%o]\n", ui);
-	printf("Unsigned octal:[%o]\n", ui);
+	/* /\* Octals - CHECK *\/ */
+	/* _printf("Unsigned octal:[%o]\n", ui); */
+	/* printf("Unsigned octal:[%o]\n", ui); */
 
-	/* Hex - CHECK */
-	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+	/* /\* Hex - CHECK *\/ */
+	/* _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
+	/* printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
 
-	/* Chars and strings - CHECK */
-	len = _printf("Character:[%c]\n", 'H');
-	len2 = printf("Character:[%c]\n", 'H');
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
-	len = _printf("%s\n", "I am a string !");
-	len2 = printf("%s\n", "I am a string !");
-	printf("Len mine = %d, Len orig = %d\n", len, len2);
-	len = _printf("String:[%s]\n", "I am a string !");
-	len2 = printf("String:[%s]\n", "I am a string !");
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
+	/* /\* Chars and strings - CHECK *\/ */
+	/* len = _printf("Character:[%c]\n", 'H'); */
+	/* len2 = printf("Character:[%c]\n", 'H'); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+	/* len = _printf("%s\n", "I am a string !"); */
+	/* len2 = printf("%s\n", "I am a string !"); */
+	/* printf("Len mine = %d, Len orig = %d\n", len, len2); */
+	/* len = _printf("String:[%s]\n", "I am a string !"); */
+	/* len2 = printf("String:[%s]\n", "I am a string !"); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
-	/* %S specifier - CHECK */
-	_printf("%S", "No special character.");
-	_printf("%S", "\n\n");
-	_printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
-	_printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
-	_printf("");
-	_printf("- What did you say?\n- %S\n- That's what I thought.\n", "");
+	/* /\* %S specifier - CHECK *\/ */
+	/* _printf("%S", "No special character."); */
+	/* _printf("%S", "\n\n"); */
+	/* _printf("%S", "\x01\x02\x03\x04\x05\x06\x07"); */
+	/* _printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n"); */
+	/* _printf(""); */
+	/* _printf("- What did you say?\n- %S\n- That's what I thought.\n", ""); */
 
-	/* Addresses - CHECK */
-	addr = (void *)0x7ffe637541f0;
-	_printf("Address:[%p]\n", addr);
-	printf("Address:[%p]\n", addr);
-	_printf("%p", (void *)0x7fff5100b608);
-	len = printf("%p", NULL);
-	len2 = _printf("%p", NULL);
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
-	_printf("Can you print an address?\n%p\nNice!\n", (void *)0x7fff5100b6f8);
-	_printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", (void *)0x7fff5100b6f8, (void *)0x7faf51f0f608, (void *)0x6ff42510b6f8, (void *)0x7fff510236f8);
-	_printf("");
-	_printf("Can you print an address?\n%p\nNice!\n", (void *)-1);
-	_printf("%pppp", (void *)0x7fff5100b6f8);
+	/* /\* Addresses - CHECK *\/ */
+	/* addr = (void *)0x7ffe637541f0; */
+	/* _printf("Address:[%p]\n", addr); */
+	/* printf("Address:[%p]\n", addr); */
+	/* _printf("%p", (void *)0x7fff5100b608); */
+	/* len = printf("%p", NULL); */
+	/* len2 = _printf("%p", NULL); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+	/* _printf("Can you print an address?\n%p\nNice!\n", (void *)0x7fff5100b6f8); */
+	/* _printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", (void *)0x7fff5100b6f8, (void *)0x7faf51f0f608, (void *)0x6ff42510b6f8, (void *)0x7fff510236f8); */
+	/* _printf(""); */
+	/* _printf("Can you print an address?\n%p\nNice!\n", (void *)-1); */
+	/* _printf("%pppp", (void *)0x7fff5100b6f8); */
 
-	/* Percent sign - CHECK */
-	len = _printf("Percent:[%%]\n");
-	len2 = printf("Percent:[%%]\n");
-	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
-	_printf("Len:[%d]\n", len);
-	printf("Len:[%d]\n", len2);
+	/* /\* Percent sign - CHECK *\/ */
+	/* len = _printf("Percent:[%%]\n"); */
+	/* len2 = printf("Percent:[%%]\n"); */
+	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+	/* _printf("Len:[%d]\n", len); */
+	/* printf("Len:[%d]\n", len2); */
 
-	/* Unknown format specifier - CHECK */
-	_printf("Unknown:[%y]\n");
-	printf("Unknown:[%y]\n");
+	/* /\* Unknown format specifier - CHECK *\/ */
+	/* _printf("Unknown:[%y]\n"); */
+	/* printf("Unknown:[%y]\n"); */
 
 	/* Modifiers */
-	_printf("%ld", 1024L);
-	_printf("\n");
-	_printf("%ld", -1024L);
-	_printf("\n");
-	_printf("%ld", 0L);
-	_printf("\n");
-	_printf("%ld", LONG_MAX);
-	_printf("\n");
-	_printf("%ld", LONG_MIN);
-	_printf("\n");
-	_printf("There is %ld bytes in %ld KB\n", 1024L, 1L);
-	_printf("%ld - %ld = %ld\n", 1024L, 2048L, -1024L);
-	_printf("%ld + %ld = %ld\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
+	/* _printf("%ld", 1024L); */
+	/* _printf("\n"); */
+	/* _printf("%ld", -1024L); */
+	/* _printf("\n"); */
+	/* _printf("%ld", 0L); */
+	/* _printf("\n"); */
+	/* _printf("%ld", LONG_MAX); */
+	/* _printf("\n"); */
+	/* _printf("%ld", LONG_MIN); */
+	/* _printf("\n"); */
+	/* _printf("There is %ld bytes in %ld KB\n", 1024L, 1L); */
+	/* _printf("%ld - %ld = %ld\n", 1024L, 2048L, -1024L); */
+	/* _printf("%ld + %ld = %ld\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX)); */
 	_printf("%li", 1024L);
 	_printf("\n");
 	_printf("%li", -1024L);
@@ -118,7 +118,12 @@ int main(void)
 	_printf("There is %li bytes in %li KB\n", 1024L, 1L);
 	_printf("%li - %li = %li\n", 1024L, 2048L, -1024L);
 	_printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
-
+	_printf("%lu", 1024UL);
+	_printf("%lu", 0UL);
+	_printf("%lu", ULONG_MAX);
+	_printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL);
+	_printf("%lu - %lu = %lu\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	
 	/* Flags */
 	/* len2 = _printf("%5c\n", 78); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */

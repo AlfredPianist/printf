@@ -8,9 +8,7 @@
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_bin(va_list arg_l,
-	   unsigned int *buffer_i, unsigned int *buff_len,
-	   char *buffer)
+void f_bin(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	char *binary;
 
@@ -27,9 +25,7 @@ void f_bin(va_list arg_l,
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_uint(va_list arg_l,
-	   unsigned int *buffer_i, unsigned int *buff_len,
-	   char *buffer)
+void f_uint(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	char *u_integer;
 
@@ -47,9 +43,7 @@ void f_uint(va_list arg_l,
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_oct(va_list arg_l,
-	   unsigned int *buffer_i, unsigned int *buff_len,
-	   char *buffer)
+void f_oct(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	char *octal;
 
@@ -66,9 +60,7 @@ void f_oct(va_list arg_l,
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_hexl(va_list arg_l,
-	    unsigned int *buffer_i, unsigned int *buff_len,
-	    char *buffer)
+void f_hexl(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	char *hex;
 
@@ -85,9 +77,7 @@ void f_hexl(va_list arg_l,
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_hexu(va_list arg_l,
-	    unsigned int *buffer_i, unsigned int *buff_len,
-	    char *buffer)
+void f_hexu(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	char *hex;
 

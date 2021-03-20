@@ -8,8 +8,7 @@
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_char(va_list arg_l, unsigned int *buffer_i, unsigned int *buff_len,
-	    char *buffer)
+void f_char(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	check_buffer(buffer, buffer_i, buff_len, (char) va_arg(arg_l, int));
 }
@@ -22,8 +21,7 @@ void f_char(va_list arg_l, unsigned int *buffer_i, unsigned int *buff_len,
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_str(va_list arg_l, unsigned int *buffer_i, unsigned int *buff_len,
-	   char *buffer)
+void f_str(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	char *str;
 
@@ -41,8 +39,7 @@ void f_str(va_list arg_l, unsigned int *buffer_i, unsigned int *buff_len,
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_perc(va_list arg_l, unsigned int *buffer_i, unsigned int *buff_len,
-	    char *buffer)
+void f_perc(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	arg_l = arg_l;
 	check_buffer(buffer, buffer_i, buff_len, '%');
@@ -56,9 +53,7 @@ void f_perc(va_list arg_l, unsigned int *buffer_i, unsigned int *buff_len,
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_int(va_list arg_l,
-	   unsigned int *buffer_i, unsigned int *buff_len,
-	   char *buffer)
+void f_int(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	char *integer;
 

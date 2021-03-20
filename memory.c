@@ -29,9 +29,7 @@ void *_alloc(void *buffer, unsigned int size)
  *              contents and return to the first character.
  * Return: The pointer to the buffer.
  */
-void check_buffer(char *buffer,
-		  unsigned int *buffer_i, unsigned int *buff_len,
-		  char c)
+void check_buffer(char *buffer, int *buffer_i, unsigned int *buff_len, char c)
 {
 	if (*buffer_i == 1024)
 	{

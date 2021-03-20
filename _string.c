@@ -7,8 +7,8 @@
  * @buff_len: The length of buffer
  * @buffer_i: The index of the buffer.
  */
-void str_concat(char *orig, char *buffer,
-		unsigned int *buffer_i, unsigned int *buff_len)
+void str_concat(char *orig, char *buffer, int *buffer_i,
+		unsigned int *buff_len)
 {
 	int index;
 
@@ -80,7 +80,7 @@ char *str_cpy_h(char *orig, char *dest)
 }
 
 /**
- * str_cmp - Compares two strings.
+ * str_cmp - Compares two strings for a number of characters.
  * @str1: The first string.
  * @str2: The second string.
  *
@@ -88,14 +88,18 @@ char *str_cpy_h(char *orig, char *dest)
  */
 int str_cmp(const char *str1, char *str2)
 {
-	short index;
+	short index, len;
 
-	index = 0;
-	while (str1[index] != '\0' || str2[index] != '\0')
+	len = index = 0;
+
+	while (str2[len++] != '\0')
+		;
+
+	while (index < len - 1)
 	{
 		if (str1[index] != str2[index])
 			return (0);
 		index++;
 	}
-	return (1);
+	return (index);
 }

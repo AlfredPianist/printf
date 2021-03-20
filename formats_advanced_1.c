@@ -8,9 +8,7 @@
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_add(va_list arg_l,
-	   unsigned int *buffer_i, unsigned int *buff_len,
-	   char *buffer)
+void f_add(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	void *add;
 	char *add_s;
@@ -40,9 +38,7 @@ void f_add(va_list arg_l,
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_strh(va_list arg_l,
-	    unsigned int *buffer_i, unsigned int *buff_len,
-	    char *buffer)
+void f_strh(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	char *str, *strh;
 	unsigned int index, len;
@@ -78,9 +74,7 @@ void f_strh(va_list arg_l,
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_rev(va_list arg_l,
-	   unsigned int *buffer_i, unsigned int *buff_len,
-	   char *buffer)
+void f_rev(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	unsigned int index;
 	char *str, *rev;
@@ -109,9 +103,7 @@ void f_rev(va_list arg_l,
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_rot(va_list arg_l,
-	   unsigned int *buffer_i, unsigned int *buff_len,
-	   char *buffer)
+void f_rot(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	unsigned int index;
 	char *str, *rot;
