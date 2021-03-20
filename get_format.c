@@ -17,7 +17,7 @@ void (*get_f(const char *f, short *i))(va_list, int *, unsigned int *, char *)
 		{"li", m_ld}, {"ld", m_ld},
 		{"lu", m_lu}, {"lo", m_lo}, {"lx", m_lx}, {"lX", m_lX},
 		{"hi", f_int}, {"hd", f_int},
-		{"hu", f_uint}, {"ho", f_oct}, {"hx", f_hexl}, {"lX", f_hexu},
+		{"hu", f_uint}, {"ho", f_oct}, {"hx", f_hexl}, {"hX", f_hexu},
 		{"c", f_char}, {"s", f_str}, {"%", f_perc},
 		{"d", f_int}, {"i", f_int},
 		{"b", f_bin}, {"u", f_uint}, {"o", f_oct},
