@@ -23,7 +23,7 @@ typedef struct format_s
 
 /* MAIN PROGRAM */
 int _printf(const char *format, ...);
-void (*get_f(const char *f))(va_list, unsigned int *, unsigned int *, char *);
+void (*get_f(char f))(va_list, unsigned int *, unsigned int *, char *);
 
 /* FORMAT SPECIFIERS */
 /* Mandatory */

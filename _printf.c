@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 				va_end(arg_l), write(1, buffer, buffer_i), free(buffer);
 				return (-1);
 			}
-			form = get_f(++format);
+			form = get_f(*(format + 1));
 			if (form == NULL)
 			{
 				check_buffer(buffer, &buffer_i, &buff_len, *(format++));
