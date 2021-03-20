@@ -21,6 +21,7 @@ void str_concat(char *orig, char *buffer,
  * str_cpy - Copies a string to another string.
  * @orig: The original string.
  * @dest: The destination string.
+ *
  * Return: pointer to destination string
  */
 char *str_cpy(char *orig, char *dest)
@@ -40,10 +41,11 @@ char *str_cpy(char *orig, char *dest)
 }
 
 /**
- * str_cp_h - Copies a string to another string, if the string has
+ * str_cpy_h - Copies a string to another string, if the string has
  *            non printable characters, then convert them to hex: \xXX.
  * @orig: The original string.
  * @dest: The destination string.
+ *
  * Return: pointer to destination string
  */
 char *str_cpy_h(char *orig, char *dest)
@@ -77,6 +79,13 @@ char *str_cpy_h(char *orig, char *dest)
 	return (dest);
 }
 
+/**
+ * str_cmp - Compares two strings.
+ * @str1: The first string.
+ * @str2: The second string.
+ *
+ * Return: 1 if equal, 0 if different.
+ */
 int str_cmp(const char *str1, char *str2)
 {
 	short index;
