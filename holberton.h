@@ -23,7 +23,9 @@ typedef struct format_s
 
 /* MAIN PROGRAM */
 int _printf(const char *format, ...);
-void (*get_f(const char *f, short *i))(va_list, int *, unsigned int *, char *);
+void form(const char **format,
+	  va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
+void (*get_f(const char *f))(va_list, int *, unsigned int *, char *);
 
 /* FORMAT SPECIFIERS */
 /* Mandatory */

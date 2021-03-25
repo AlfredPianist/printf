@@ -123,14 +123,15 @@ int main(void)
 	/* _printf("%lu", ULONG_MAX); */
 	/* _printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL); */
 	/* _printf("%lu - %lu = %lu\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL); */
-	_printf("%h\n");
-	_printf("%l\n");
+	/* _printf("%h\n"); */
+	/* _printf("%l\n"); */
 
 	/* Flags */
 	/* len2 = _printf("%5c\n", 78); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
 	/* Precision */
+	_printf("%.0dbla %.iblabla", 123456);
 	/* printf("%+d\n", 1000000000); */
 	/* printf("%08d\n", 123456); */
 	/* printf("%#x\n", 1); */

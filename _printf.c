@@ -12,14 +12,12 @@
  */
 int _printf(const char *format, ...)
 {
-	void (*form)(va_list, int *, unsigned int *, char *);
 	va_list arg_l;
 	int buffer_i;
 	unsigned int buff_len;
-	short f_index;
 	char *buffer;
 
-	buffer_i = buff_len = f_index = 0, buffer = NULL;
+	buffer_i = buff_len = 0, buffer = NULL;
 	buffer = _alloc(buffer, 1024);
 
 	if (!format || !buffer || (*format == '%' && *(format + 1) == '\0'))
@@ -38,13 +36,9 @@ int _printf(const char *format, ...)
 				va_end(arg_l), write(1, buffer, buffer_i), free(buffer);
 				return (-1);
 			}
-			form = get_f(format + 1, &f_index);
-			if (form == NULL)
-			{
-				check_buffer(buffer, &buffer_i, &buff_len, *(format++));
-				continue;
-			}
-			form(arg_l, &buffer_i, &buff_len, buffer), format += f_index, f_index = 0;
+			format++;
+			form(&format, arg_l, &buffer_i, &buff_len, buffer);
+			printf("format _printf = %s\n", format);
 		}
 		else
 			check_buffer(buffer, &buffer_i, &buff_len, *(format++));
