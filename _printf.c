@@ -38,7 +38,6 @@ int _printf(const char *format, ...)
 			}
 			format++;
 			form(&format, arg_l, &buffer_i, &buff_len, buffer);
-			printf("format _printf = %s\n", format);
 		}
 		else
 			check_buffer(buffer, &buffer_i, &buff_len, *(format++));

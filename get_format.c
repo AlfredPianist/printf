@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * _atoi - Converts a number of the format given to unsigned int.
+ * @format: The format string.
+ *
+ * Return: The converted number.
+ */
 unsigned int _atoi(const char **format)
 {
 	unsigned int counter, digits;
@@ -29,7 +35,7 @@ unsigned int _atoi(const char **format)
 
 /**
  * get_f - Chooses the format to be used.
- * @f: The character to be compared.
+ * @f: The format string to be compared.
  *
  * Description: Iterates from a set of formats of format_t type
  *              and chooses the adecuate one. If it couldn't be found, return
@@ -37,7 +43,7 @@ unsigned int _atoi(const char **format)
  * Return: The pointer to the address of the format specifier to be operated.
  *          Otherwise, return NULL.
  */
-void (*get_f(const char *f))(va_list, int *, unsigned int *, char *)
+void (*get_f(const char **f))(va_list, int *, unsigned int *, char *)
 {
 	format_t formats[] = {
 		{"li", m_ld}, {"ld", m_ld},
@@ -59,8 +65,11 @@ void (*get_f(const char *f))(va_list, int *, unsigned int *, char *)
 
 	while (formats[counter].format != NULL)
 	{
-		if (str_cmp(f, formats[counter].format) != 0)
+		if (str_cmp(*f, formats[counter].format) != 0)
+		{
+			*f += str_cmp(*f, formats[counter].format);
 			return (formats[counter].format_f);
+		}
 		counter++;
 	}
 	return (NULL);
@@ -86,18 +95,22 @@ void form(const char **format,
 
 	precision = counter = 0;
 
-	printf("format enter form = %s\n", *format);
 	if (**format == '.')
 	{
 		*format += 1;
-		precision = _atoi(format);
+		if (**format == '*')
+		{
+			precision = va_arg(arg_l, unsigned int);
+			*format += 1;
+		}
+		else
+			precision = _atoi(format);
 	}
-	
-	printf("format exit _aoti  = %s, number = %u\n", *format, precision);
-	/* if (f == 0) */
-	/* { */
-	/* 	check_buffer(buffer, buffer_i, buff_len, *(*(format++))); */
-	/* 	continue; */
-	/* } */
-	/* f(arg_l, buffer_i, buff_len, buffer), format += f_index, f_index = 0; */
+
+	printf("Precision = %u\n", precision);
+	f = get_f(format);
+	if (f == NULL)
+		check_buffer(buffer, buffer_i, buff_len, *(*(format++)));
+	else
+		f(arg_l, buffer_i, buff_len, buffer);
 }
