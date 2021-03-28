@@ -8,9 +8,19 @@
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_char(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
+char *f_char(va_list arg_l, unsigned int precision)
 {
-	check_buffer(buffer, buffer_i, buff_len, (char) va_arg(arg_l, int));
+	precision = precision;
+
+	char *ch;
+
+	ch = _alloc(ch, 2 * sizeof(*ch));
+
+	ch[0] = (char) va_arg(arg_l, int);
+	ch[1] = '\0';
+
+	return (ch);
+	/* check_buffer(buffer, buffer_i, buff_len, (char) va_arg(arg_l, int)); */
 }
 
 /**
@@ -21,14 +31,35 @@ void f_char(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_str(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
+char *f_str(va_list arg_l, unsigned int precision)
 {
-	char *str;
+	char *orig, *dup;
+	unsigned int len_dup;
 
-	str = va_arg(arg_l, char *);
-	if (str == NULL)
-		str = "(null)";
-	str_concat(str, buffer, buffer_i, buff_len);
+	dup = NULL;
+	len_dup = 0;
+	orig = va_arg(arg_l, char *);
+	if (orig == NULL)
+		orig = "(null)";
+
+	len_dup = str_len(orig);
+	dup = _alloc(dup, len_dup * sizeof(*dup));
+	dup = str_cpy(orig, dup);
+
+	if (precision != UINT_MAX)
+	{
+		if (len_dup - 1 > precision)
+		{
+			dup = _realloc(dup, len_dup * sizeof(*dup), precision * sizeof(*dup));
+			if (dup == NULL)
+			{
+				printf("NULO\n");
+				return ("");
+			}
+		}
+	}
+
+	return (dup);
 }
 
 /**
@@ -39,10 +70,20 @@ void f_str(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_perc(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
+char *f_perc(va_list arg_l, unsigned int precision)
 {
 	arg_l = arg_l;
-	check_buffer(buffer, buffer_i, buff_len, '%');
+	precision = precision;
+
+	char *perc;
+
+	perc = _alloc(perc, 2 * sizeof(*perc));
+
+	perc[0] = '%';
+	perc[1] = '\0';
+
+	return (perc);
+	/* check_buffer(buffer, buffer_i, buff_len, '%'); */
 }
 
 /**
@@ -53,11 +94,12 @@ void f_perc(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
  * @buff_len: The total length of the string to be printed.
  * @buffer: The pointer to the buffer to be printed.
  */
-void f_int(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
+char *f_int(va_list arg_l, unsigned int precision)
 {
 	char *integer;
 
 	integer = _itoa(va_arg(arg_l, int));
-	str_concat(integer, buffer, buffer_i, buff_len);
-	free(integer);
+	return (integer);
+	/* str_concat(integer, buffer, buffer_i, buff_len); */
+	/* free(integer); */
 }

@@ -131,7 +131,7 @@ int main(void)
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
 	/* Precision */
-	_printf("%.*dbla %.*iblabla\n", 42, 1234560, 50, 12345);
+	_printf("%.*sbla %.*sblabla\n", 2, "Hola", 0, "Mundo");
 	/* printf("%+d\n", 1000000000); */
 	/* printf("%08d\n", 123456); */
 	/* printf("%#x\n", 1); */

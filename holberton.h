@@ -18,52 +18,49 @@
 typedef struct format_s
 {
 	char *format;
-	void (*format_f)(va_list, int *, unsigned int *, char *);
+	char *(*format_f)(va_list, unsigned int);
 } format_t;
 
 /* MAIN PROGRAM */
 int _printf(const char *format, ...);
 void form(const char **format,
 	  va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-void (*get_f(const char **f))(va_list, int *, unsigned int *, char *);
+char *(*get_f(const char **f))(va_list, unsigned int);
 
 /* FORMAT SPECIFIERS */
 /* Mandatory */
-void f_char(va_list arg_l,
-	    int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
-void f_str(va_list arg_l,
-	   int *buffer_i, unsigned int *buff_len,
-	   char *buffer);
-void f_perc(va_list arg_l,
-	    int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
-void f_int(va_list arg_l,
-	   int *buffer_i, unsigned int *buff_len,
-	   char *buffer);
+char *f_char(va_list arg_l, unsigned int);
+char *f_str(va_list arg_l, unsigned int);
+char *f_perc(va_list arg_l, unsigned int);
+char *f_int(va_list arg_l, unsigned int);
 
 /* Advanced */
 /* Formats */
-void f_bin(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-void f_uint(va_list arg_l, int *buffer_i, unsigned int *buff_len,
+char *f_bin(va_list arg_l, int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
-void f_oct(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-void f_hexu(va_list arg_l, int *buffer_i, unsigned int *buff_len,
+char *f_uint(va_list arg_l, int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
-void f_hexl(va_list arg_l, int *buffer_i, unsigned int *buff_len,
+char *f_oct(va_list arg_l, int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
-void f_add(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-void f_strh(va_list arg_l, int *buffer_i, unsigned int *buff_len,
+char *f_hexu(va_list arg_l, int *buffer_i, unsigned int *buff_len,
 	    char *buffer);
-void f_rev(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-void f_rot(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
+char *f_hexl(va_list arg_l, int *buffer_i, unsigned int *buff_len,
+	    char *buffer);
+char *f_add(va_list arg_l, int *buffer_i, unsigned int *buff_len,
+	    char *buffer);
+char *f_strh(va_list arg_l, int *buffer_i, unsigned int *buff_len,
+	    char *buffer);
+char *f_rev(va_list arg_l, int *buffer_i, unsigned int *buff_len,
+	    char *buffer);
+char *f_rot(va_list arg_l, int *buffer_i, unsigned int *buff_len,
+	    char *buffer);
 
 /* Modifiers */
-void m_ld(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-void m_lu(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-void m_lo(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-void m_lx(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-void m_lX(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
+char *m_ld(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
+char *m_lu(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
+char *m_lo(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
+char *m_lx(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
+char *m_lX(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
 
 /* EXTRA */
 /* Utilities */
@@ -75,12 +72,14 @@ void rot13(char *str);
 /* String manipulation */
 void str_concat(char *orig, char *buffer, int *buffer_i,
 		unsigned int *buff_len);
+unsigned int str_len(char *str);
 char *str_cpy(char *orig, char *dest);
 char *str_cpy_h(char *orig, char *dest);
 int str_cmp(const char *str1, char *str2);
 
 /* Memory management */
 void *_alloc(void *buffer, unsigned int size);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void check_buffer(char *buffer, int *buffer_i, unsigned int *buff_len, char c);
 
 #endif

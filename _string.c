@@ -17,6 +17,17 @@ void str_concat(char *orig, char *buffer, int *buffer_i,
 		check_buffer(buffer, buffer_i, buff_len, orig[index++]);
 }
 
+unsigned int str_len(char *str)
+{
+	unsigned int len;
+
+	len = 0;
+	while (str[len++] != '\0')
+		;
+
+	return (len);
+}
+
 /**
  * str_cpy - Copies a string to another string.
  * @orig: The original string.

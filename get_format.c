@@ -43,20 +43,20 @@ unsigned int _atoi(const char **format)
  * Return: The pointer to the address of the format specifier to be operated.
  *          Otherwise, return NULL.
  */
-void (*get_f(const char **f))(va_list, int *, unsigned int *, char *)
+char *(*get_f(const char **f))(va_list, unsigned int)
 {
 	format_t formats[] = {
-		{"li", m_ld}, {"ld", m_ld},
-		{"lu", m_lu}, {"lo", m_lo}, {"lx", m_lx}, {"lX", m_lX},
-		{"hi", f_int}, {"hd", f_int},
-		{"hu", f_uint}, {"ho", f_oct}, {"hx", f_hexl}, {"hX", f_hexu},
-		{"h", f_perc}, {"l", f_perc},
+		/* {"li", m_ld}, {"ld", m_ld}, */
+		/* {"lu", m_lu}, {"lo", m_lo}, {"lx", m_lx}, {"lX", m_lX}, */
+		/* {"hi", f_int}, {"hd", f_int}, */
+		/* {"hu", f_uint}, {"ho", f_oct}, {"hx", f_hexl}, {"hX", f_hexu}, */
+		/* {"h", f_perc}, {"l", f_perc}, */
 		{"c", f_char}, {"s", f_str}, {"%", f_perc},
 		{"d", f_int}, {"i", f_int},
-		{"b", f_bin}, {"u", f_uint}, {"o", f_oct},
-		{"x", f_hexl}, {"X", f_hexu},
-		{"p", f_add}, {"S", f_strh},
-		{"r", f_rev}, {"R", f_rot},
+		/* {"b", f_bin}, {"u", f_uint}, {"o", f_oct}, */
+		/* {"x", f_hexl}, {"X", f_hexu}, */
+		/* {"p", f_add}, {"S", f_strh}, */
+		/* {"r", f_rev}, {"R", f_rot}, */
 		{NULL, NULL}
 	};
 	short counter;
@@ -89,11 +89,10 @@ void (*get_f(const char **f))(va_list, int *, unsigned int *, char *)
 void form(const char **format,
 	  va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
-	void (*f)(va_list, int *, unsigned int *, char *);
-	short counter;
-	unsigned int precision;
+	char *(*f)(va_list, unsigned int), *f_output;
+	int precision;
 
-	precision = counter = 0;
+	precision = UINT_MAX;
 
 	if (**format == '.')
 	{
@@ -112,5 +111,9 @@ void form(const char **format,
 	if (f == NULL)
 		check_buffer(buffer, buffer_i, buff_len, *(*(format++)));
 	else
-		f(arg_l, buffer_i, buff_len, buffer);
+	{
+		f_output = f(arg_l, precision);
+		str_concat(f_output, buffer, buffer_i, buff_len);
+		free(f_output);
+	}
 }
