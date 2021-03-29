@@ -92,7 +92,8 @@ int main(void)
 	/* printf("Unknown:[%y]\n"); */
 
 	/* Modifiers */
-	/* _printf("%ld", 1024L); */
+	/* _printf("Mine %.*ld", 40, 1024L); */
+	/* printf("Orig %.*ld", 40, 1024L); */
 	/* _printf("\n"); */
 	/* _printf("%ld", -1024L); */
 	/* _printf("\n"); */
@@ -130,8 +131,23 @@ int main(void)
 	/* len2 = _printf("%5c\n", 78); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
 
-	/* Precision */
-	_printf("%.*sbla %.*sblabla\n", 2, "Hola", 0, "Mundo");
+	/* Precision - CHECK */
+	_printf("%.20i\n", -102498402);
+	printf("%.20i\n", -102498402);
+	_printf("%.20u\n", 102498402);
+	printf("%.20u\n", 102498402);
+	_printf("%.20x\n", 102498402);
+	printf("%.20x\n", 102498402);
+	_printf("%.20X\n", 102498402);
+	printf("%.20X\n", 102498402);
+	_printf("%.20o\n", 102498402);
+	printf("%.20o\n", 102498402);
+	_printf("%.*sblabla\n", 0, "Hola");
+	printf("%.*sblabla\n", 0, "Hola");
+	_printf("%.*sblabla\n", 2, "Hola");
+	printf("%.*sblabla\n", 2, "Hola");
+	_printf("%.*i", 0, 0);
+	printf("%.*i", 0, 0);
 	/* printf("%+d\n", 1000000000); */
 	/* printf("%08d\n", 123456); */
 	/* printf("%#x\n", 1); */

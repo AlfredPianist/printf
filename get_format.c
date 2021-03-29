@@ -1,10 +1,11 @@
 #include "holberton.h"
 
 /**
- * _atoi - Converts a number of the format given to unsigned int.
+ * _atoi - Converts a number of the format (width or precision) given
+ *         to unsigned int.
  * @format: The format string.
  *
- * Return: The converted number.
+ * Return: The width or precision number.
  */
 unsigned int _atoi(const char **format)
 {
@@ -46,17 +47,17 @@ unsigned int _atoi(const char **format)
 char *(*get_f(const char **f))(va_list, unsigned int)
 {
 	format_t formats[] = {
-		/* {"li", m_ld}, {"ld", m_ld}, */
-		/* {"lu", m_lu}, {"lo", m_lo}, {"lx", m_lx}, {"lX", m_lX}, */
-		/* {"hi", f_int}, {"hd", f_int}, */
-		/* {"hu", f_uint}, {"ho", f_oct}, {"hx", f_hexl}, {"hX", f_hexu}, */
-		/* {"h", f_perc}, {"l", f_perc}, */
+		{"li", m_ld}, {"ld", m_ld},
+		{"lu", m_lu}, {"lo", m_lo}, {"lx", m_lx}, {"lX", m_lX},
+		{"hi", f_int}, {"hd", f_int},
+		{"hu", f_uint}, {"ho", f_oct}, {"hx", f_hexl}, {"hX", f_hexu},
+		{"h", f_perc}, {"l", f_perc},
 		{"c", f_char}, {"s", f_str}, {"%", f_perc},
 		{"d", f_int}, {"i", f_int},
-		/* {"b", f_bin}, {"u", f_uint}, {"o", f_oct}, */
-		/* {"x", f_hexl}, {"X", f_hexu}, */
-		/* {"p", f_add}, {"S", f_strh}, */
-		/* {"r", f_rev}, {"R", f_rot}, */
+		{"b", f_bin}, {"u", f_uint}, {"o", f_oct},
+		{"x", f_hexl}, {"X", f_hexu},
+		{"p", f_add}, {"S", f_strh},
+		{"r", f_rev}, {"R", f_rot},
 		{NULL, NULL}
 	};
 	short counter;
@@ -77,20 +78,21 @@ char *(*get_f(const char **f))(va_list, unsigned int)
 
 /**
  * form - Parses the format string.
- * @f: The character to be compared.
- * @i: The current index of the format string.
+ * @format: The format string.
+ * @arg_l: The argument list to be operated.
+ * @buffer_i: The address of the current position of the buffer to be printed.
+ * @buff_len: The total length of the string to be printed.
+ * @buffer: The pointer to the buffer to be printed.
  *
- * Description: Iterates from a set of formats of format_t type
- *              and chooses the adecuate one. If it couldn't be found, return
- *              NULL.
- * Return: The pointer to the address of the format specifier to be operated.
- *          Otherwise, return NULL.
+ * Description: Parses the entirety of the format string and concatenates to
+ *              buffer the result given any flags, width, precision and
+ *              format specifier.
  */
 void form(const char **format,
 	  va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer)
 {
 	char *(*f)(va_list, unsigned int), *f_output;
-	int precision;
+	unsigned  int precision;
 
 	precision = UINT_MAX;
 
@@ -106,7 +108,6 @@ void form(const char **format,
 			precision = _atoi(format);
 	}
 
-	printf("Precision = %u\n", precision);
 	f = get_f(format);
 	if (f == NULL)
 		check_buffer(buffer, buffer_i, buff_len, *(*(format++)));
@@ -114,6 +115,7 @@ void form(const char **format,
 	{
 		f_output = f(arg_l, precision);
 		str_concat(f_output, buffer, buffer_i, buff_len);
-		free(f_output);
+		if (f_output[0] != '\0')
+			free(f_output);
 	}
 }

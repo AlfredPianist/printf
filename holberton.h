@@ -29,38 +29,33 @@ char *(*get_f(const char **f))(va_list, unsigned int);
 
 /* FORMAT SPECIFIERS */
 /* Mandatory */
-char *f_char(va_list arg_l, unsigned int);
-char *f_str(va_list arg_l, unsigned int);
-char *f_perc(va_list arg_l, unsigned int);
-char *f_int(va_list arg_l, unsigned int);
+char *f_char(va_list arg_l, unsigned int precision);
+char *f_str(va_list arg_l, unsigned int precision);
+char *f_perc(va_list arg_l, unsigned int precision);
+char *f_int(va_list arg_l, unsigned int precision);
 
 /* Advanced */
 /* Formats */
-char *f_bin(va_list arg_l, int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
-char *f_uint(va_list arg_l, int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
-char *f_oct(va_list arg_l, int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
-char *f_hexu(va_list arg_l, int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
-char *f_hexl(va_list arg_l, int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
-char *f_add(va_list arg_l, int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
-char *f_strh(va_list arg_l, int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
-char *f_rev(va_list arg_l, int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
-char *f_rot(va_list arg_l, int *buffer_i, unsigned int *buff_len,
-	    char *buffer);
+char *f_bin(va_list arg_l, unsigned int precision);
+char *f_uint(va_list arg_l, unsigned int precision);
+char *f_oct(va_list arg_l, unsigned int precision);
+char *f_hexu(va_list arg_l, unsigned int precision);
+char *f_hexl(va_list arg_l, unsigned int precision);
+char *f_add(va_list arg_l, unsigned int precision);
+char *f_strh(va_list arg_l, unsigned int precision);
+char *f_rev(va_list arg_l, unsigned int precision);
+char *f_rot(va_list arg_l, unsigned int precision);
 
 /* Modifiers */
-char *m_ld(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-char *m_lu(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-char *m_lo(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-char *m_lx(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
-char *m_lX(va_list arg_l, int *buffer_i, unsigned int *buff_len, char *buffer);
+char *m_ld(va_list arg_l, unsigned int precision);
+char *m_lu(va_list arg_l, unsigned int precision);
+char *m_lo(va_list arg_l, unsigned int precision);
+char *m_lx(va_list arg_l, unsigned int precision);
+char *m_lX(va_list arg_l, unsigned int precision);
+
+/* Precision */
+char *prec_int(char *integer, unsigned int precision);
+char *prec_uint(char *u_integer, unsigned int precision);
 
 /* EXTRA */
 /* Utilities */

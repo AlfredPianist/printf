@@ -17,6 +17,12 @@ void str_concat(char *orig, char *buffer, int *buffer_i,
 		check_buffer(buffer, buffer_i, buff_len, orig[index++]);
 }
 
+/**
+ * str_len - Calculates the length of a string.
+ * @str: The string to be calculated.
+ *
+ * Return: The length of the string.
+ */
 unsigned int str_len(char *str)
 {
 	unsigned int len;
