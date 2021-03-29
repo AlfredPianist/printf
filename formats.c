@@ -44,11 +44,7 @@ char *f_str(va_list arg_l, unsigned int precision)
 	buf = str_cpy(orig, buf);
 
 	if ((precision != UINT_MAX) && (len_buf - 1 > precision))
-	{
 		buf = _realloc(buf, len_buf * sizeof(*buf), precision * sizeof(*buf));
-		if (buf == NULL)
-			return ("");
-	}
 
 	return (buf);
 }

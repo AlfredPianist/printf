@@ -13,6 +13,9 @@ void str_concat(char *orig, char *buffer, int *buffer_i,
 	int index;
 
 	index = 0;
+	if (*orig == '\0' && *(orig + 1) == '\0')
+		check_buffer(buffer, buffer_i, buff_len, orig[index]);
+
 	while (orig[index] != '\0')
 		check_buffer(buffer, buffer_i, buff_len, orig[index++]);
 }

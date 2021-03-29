@@ -110,12 +110,14 @@ void form(const char **format,
 
 	f = get_f(format);
 	if (f == NULL)
-		check_buffer(buffer, buffer_i, buff_len, *(*(format++)));
+	{
+		check_buffer(buffer, buffer_i, buff_len, *(*format - 1));
+		format += 1;
+	}
 	else
 	{
 		f_output = f(arg_l, precision);
 		str_concat(f_output, buffer, buffer_i, buff_len);
-		if (f_output[0] != '\0')
-			free(f_output);
+		free(f_output);
 	}
 }
