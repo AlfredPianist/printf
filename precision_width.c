@@ -21,7 +21,9 @@ char *prec_int(char *integer, unsigned int precision)
 	if (integer[0] == '0' && precision == 0)
 	{
 		free(integer);
-		return ("");
+		buf = _alloc(buf, 1);
+		buf[0] = '\0';
+		return (buf);
 	}
 
 	if (integer[0] == '-')
@@ -64,7 +66,9 @@ char *prec_uint(char *u_integer, unsigned int precision)
 	if (u_integer[0] == '0' && precision == 0)
 	{
 		free(u_integer);
-		return ("");
+		buf = _alloc(buf, 1);
+		buf[0] = '\0';
+		return (buf);
 	}
 	len_int = str_len(u_integer) - 1;
 
