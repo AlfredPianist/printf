@@ -37,9 +37,9 @@ int main(void)
 	/* len = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0); */
 	/* len2 = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
-	/* len = _printf("%c%cth %s%s a%cg%s: You %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "know", 't', ", Jon", '\n'); */
-	/* len2 = printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n'); */
-	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+	len = _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
+	len2 = printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
+	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
 	/* len = _printf("%%"), _printf("\n"); */
 	/* len2 = printf("%%"), printf("\n"); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
@@ -61,9 +61,9 @@ int main(void)
 	/* len = _printf(NULL), _printf("\n"); */
 	/* len2 = printf(NULL), printf("\n"); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
-	/* len = _printf("%c", '\0'), _printf("\n"); */
-	/* len2 = printf("%c", '\0'), printf("\n"); */
-	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */
+	len = _printf("%c", '\0'), _printf("\n");
+	len2 = printf("%c", '\0'), printf("\n");
+	printf("Len 1 = %d, Len 2 = %d\n", len, len2);
 	/* len = _printf("%"), _printf("\n"); */
 	/* len2 = printf("%"), printf("\n"); */
 	/* printf("Len 1 = %d, Len 2 = %d\n", len, len2); */

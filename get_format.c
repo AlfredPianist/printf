@@ -117,7 +117,10 @@ void form(const char **format,
 	else
 	{
 		f_output = f(arg_l, precision);
-		str_concat(f_output, buffer, buffer_i, buff_len);
+		if (f == &f_char && *f_output == '\0')
+			check_buffer(buffer, buffer_i, buff_len, *f_output);
+		else
+			str_concat(f_output, buffer, buffer_i, buff_len);
 		free(f_output);
 	}
 }
